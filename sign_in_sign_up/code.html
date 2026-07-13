@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Balaji Holidays | Sign In</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .font-headline {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .form-transition {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .illustration-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-container": "#86a0cd",
+                        "outline": "#74777f",
+                        "surface": "#f7fafc",
+                        "error-container": "#ffdad6",
+                        "tertiary-container": "#4f2e00",
+                        "primary-fixed": "#d6e3ff",
+                        "surface-bright": "#f7fafc",
+                        "secondary-container": "#a2eded",
+                        "primary-container": "#1a365d",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-fixed": "#002020",
+                        "on-background": "#181c1e",
+                        "on-secondary": "#ffffff",
+                        "surface-tint": "#455f88",
+                        "on-primary-fixed-variant": "#2d476f",
+                        "on-tertiary-container": "#d4903b",
+                        "background": "#f7fafc",
+                        "surface-container-low": "#f1f4f6",
+                        "inverse-surface": "#2d3133",
+                        "surface-container-highest": "#e0e3e5",
+                        "tertiary-fixed-dim": "#ffb866",
+                        "outline-variant": "#c4c6cf",
+                        "error": "#ba1a1a",
+                        "surface-container-high": "#e5e9eb",
+                        "tertiary": "#321b00",
+                        "secondary": "#13696a",
+                        "on-surface": "#181c1e",
+                        "on-primary": "#ffffff",
+                        "secondary-fixed-dim": "#89d3d4",
+                        "on-surface-variant": "#43474e",
+                        "on-error-container": "#93000a",
+                        "secondary-fixed": "#a5eff0",
+                        "on-error": "#ffffff",
+                        "inverse-on-surface": "#eef1f3",
+                        "on-secondary-fixed-variant": "#004f50",
+                        "tertiary-fixed": "#ffddba",
+                        "surface-container": "#ebeef0",
+                        "primary-fixed-dim": "#adc7f7",
+                        "surface-dim": "#d7dadc",
+                        "primary": "#002045"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "40px",
+                        "unit": "8px",
+                        "container-max": "1280px",
+                        "margin-mobile": "16px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Montserrat"],
+                        "display-lg": ["Montserrat"],
+                        "body-md": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "display-lg-mobile": ["Montserrat"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                        "display-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "label-sm": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "display-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-surface text-on-surface min-h-screen flex flex-col items-center justify-center">
+<main class="w-full max-w-[1100px] h-full lg:h-[700px] flex flex-col lg:flex-row bg-surface-container-lowest lg:rounded-xl overflow-hidden lg:shadow-[0px_4px_20px_rgba(26,54,93,0.05)] transition-all duration-500">
+<!-- Left Side: Illustration & Branding -->
+<section class="hidden lg:flex flex-col flex-1 bg-primary-container relative p-12 justify-between overflow-hidden">
+<!-- Decorative circle -->
+<div class="absolute -top-20 -left-20 w-80 h-80 bg-primary/20 rounded-full blur-3xl"></div>
+<div class="relative z-10">
+<h1 class="font-headline-md text-headline-md font-bold text-on-primary">Balaji Holidays</h1>
+<p class="mt-4 font-body-lg text-body-lg text-on-primary-container max-w-xs leading-relaxed">
+                    Your journey to the world's most hidden gems begins here.
+                </p>
+</div>
+<div class="relative z-10 flex flex-col items-center justify-center flex-grow">
+<div class="illustration-float w-full max-w-md">
+<img class="w-full h-auto drop-shadow-2xl" data-alt="A clean, modern travel-inspired vector illustration in a minimalist editorial style. A cheerful traveler with a minimalist backpack and a digital map tablet is walking towards glowing abstract destination peaks. The color palette features deep navy blue, soft teal, and vibrant saffron accents against a light cream background, evoking a sense of calm excitement and sophisticated adventure." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCMCr-zPizYqLaMYgRnQ-ibRBBZojCgOy97MrxSf6WPdZ52ExdH_zwETPjEXTNSAzSjsOFbuWko2F0pMOslgkc9dV9c4jbd__6BzTnFhwQ1zU2zc3-q2AErFZjRVqacrPg1HyH6yCG5vEZNGISHIjqvKvZ-IaorZeyTG3VQAwuIf9xqfNgFpyCYXbnVS9tAz6GkbZ0KjNdmzHx4ZJ7aZ6qSS3QlehQ1-VibvOSb6Ptmna0nJX1DPP_Fid83lPfz6x5y_ERRc46dO7J9"/>
+</div>
+</div>
+<div class="relative z-10 pt-8 border-t border-on-primary-container/20">
+<div class="flex items-center gap-3">
+<div class="flex -space-x-2">
+<div class="w-8 h-8 rounded-full border-2 border-primary-container bg-surface-variant overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A close-up portrait of a smiling young woman in travel gear, golden hour lighting, clean aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDGTZ-2P1PbnLtP0zUuphkzIuqG4SBcDvUvO75-WmmWS36zViKdNeGrW_4oQFE6DGV1W4Q9C6EVD_BbYXVjkx51sXC10qjx9lflP_eNwdJf2-A5sBlZ74mymLh9nvGSSjOTEreEgDU0b9O7VtEzFiHsvICMFTMzTDUGvKey8hNcL_8_rduF639bHqsf5j8tsrhxLMNnBfl2JHp8GJN3lihs8_S7wmFDF-WAwKBiwrgvc34HRssa_twyxVi8Y07fkLrGA5I0Lhhjio6y"/>
+</div>
+<div class="w-8 h-8 rounded-full border-2 border-primary-container bg-surface-variant overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A portrait of a cheerful man with a map, outdoor setting with soft bokeh mountains, travel vibe." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCx4DgRqHSJXvC5B1Mup1uAPcXXrhMJicxcdfE8d7RyilDCYuqMEiDBHUqU_OJnByTa3G--TjUex8OesvIszAd_d2etC6HxIHHoRypg76stcDaWCObOxJ8byOMO8OzTEUkc9yh8PHjOOab3fGZWIGJTHuq4A5U_T8ONK1R9tWk8X_EX8fOs-e8pDL6sfGw5dUFNOsJMHcH2n4ailPo_DppU4rKxIVBptkhan2yk2srnrpSjtv7arIVuJGiXu4RsTowv0Q8IUQZdsiMU"/>
+</div>
+</div>
+<span class="text-label-sm font-label-sm text-on-primary-container">Join 20k+ fellow travelers</span>
+</div>
+</div>
+</section>
+<!-- Right Side: Form Content -->
+<section class="flex-1 p-8 lg:p-16 flex flex-col justify-center bg-surface-container-lowest">
+<div class="max-w-[400px] mx-auto w-full">
+<!-- Toggle Header -->
+<div class="flex justify-between items-end mb-10">
+<div>
+<h2 class="font-headline-md text-headline-md text-primary" id="form-title">Welcome back</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1" id="form-subtitle">Please enter your details.</p>
+</div>
+</div>
+<!-- Form Toggle Switch -->
+<div class="bg-surface-container-low p-1 rounded-lg flex mb-8">
+<button class="flex-1 py-2 text-label-sm font-label-sm rounded-md bg-surface-container-lowest shadow-sm text-primary transition-all duration-300" id="toggle-signin" onclick="switchForm('signin')">Sign in</button>
+<button class="flex-1 py-2 text-label-sm font-label-sm rounded-md text-on-surface-variant hover:text-primary transition-all duration-300" id="toggle-signup" onclick="switchForm('signup')">Create account</button>
+</div>
+<!-- Google Login -->
+<button class="w-full py-3 px-4 border border-outline-variant rounded-xl flex items-center justify-center gap-3 font-label-sm text-label-sm text-on-surface hover:bg-surface-container-low transition-colors duration-200 mb-6">
+<svg fill="none" height="20" viewbox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg">
+<path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path>
+<path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path>
+<path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"></path>
+<path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"></path>
+</svg>
+                    Continue with Google
+                </button>
+<div class="relative flex items-center mb-8">
+<div class="flex-grow border-t border-outline-variant"></div>
+<span class="flex-shrink mx-4 text-label-sm font-label-sm text-outline">or</span>
+<div class="flex-grow border-t border-outline-variant"></div>
+</div>
+<!-- Form Fields -->
+<form class="space-y-5" id="auth-form" onsubmit="event.preventDefault()">
+<div class="hidden" id="name-field-container">
+<label class="block text-label-sm font-label-sm text-on-surface-variant mb-1.5" for="name">Full Name</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[20px]">person</span>
+<input class="w-full pl-10 pr-4 py-3 bg-surface-container-low border-transparent focus:border-primary focus:ring-1 focus:ring-primary rounded-xl text-body-md transition-all" id="name" name="name" placeholder="Enter your full name" type="text"/>
+</div>
+</div>
+<div>
+<label class="block text-label-sm font-label-sm text-on-surface-variant mb-1.5" for="email">Email address</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[20px]">mail</span>
+<input class="w-full pl-10 pr-4 py-3 bg-surface-container-low border-transparent focus:border-primary focus:ring-1 focus:ring-primary rounded-xl text-body-md transition-all" id="email" name="email" placeholder="you@example.com" type="email"/>
+</div>
+</div>
+<div>
+<div class="flex justify-between items-center mb-1.5">
+<label class="block text-label-sm font-label-sm text-on-surface-variant" for="password">Password</label>
+<a class="text-label-sm font-label-sm text-primary hover:underline" href="#" id="forgot-link">Forgot?</a>
+</div>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[20px]">lock</span>
+<input class="w-full pl-10 pr-10 py-3 bg-surface-container-low border-transparent focus:border-primary focus:ring-1 focus:ring-primary rounded-xl text-body-md transition-all" id="password" name="password" placeholder="••••••••" type="password"/>
+<button class="absolute right-3 top-1/2 -translate-y-1/2 text-outline hover:text-primary transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px]">visibility</span>
+</button>
+</div>
+</div>
+<button class="w-full py-4 bg-primary text-on-primary rounded-xl font-label-sm text-label-sm hover:bg-primary/90 active:scale-[0.98] transition-all duration-200 mt-4 shadow-lg shadow-primary/10" id="submit-btn" type="submit">
+                        Sign in
+                    </button>
+</form>
+<p class="mt-8 text-center text-label-sm font-label-sm text-on-surface-variant">
+                    By continuing, you agree to our <a class="text-primary hover:underline" href="#">Terms of Service</a> and <a class="text-primary hover:underline" href="#">Privacy Policy</a>.
+                </p>
+</div>
+</section>
+</main>
+<footer class="mt-8 mb-4 px-margin-mobile text-center">
+<p class="text-label-sm font-label-sm text-outline">© 2024 Balaji Holidays. All rights reserved.</p>
+</footer>
+<script>
+        function switchForm(mode) {
+            const title = document.getElementById('form-title');
+            const subtitle = document.getElementById('form-subtitle');
+            const submitBtn = document.getElementById('submit-btn');
+            const nameField = document.getElementById('name-field-container');
+            const forgotLink = document.getElementById('forgot-link');
+            
+            const btnSignin = document.getElementById('toggle-signin');
+            const btnSignup = document.getElementById('toggle-signup');
+
+            if (mode === 'signup') {
+                title.innerText = 'Create an account';
+                subtitle.innerText = 'Start your holiday planning today.';
+                submitBtn.innerText = 'Create account';
+                nameField.classList.remove('hidden');
+                forgotLink.classList.add('hidden');
+                
+                btnSignup.classList.add('bg-surface-container-lowest', 'shadow-sm', 'text-primary');
+                btnSignup.classList.remove('text-on-surface-variant');
+                btnSignin.classList.remove('bg-surface-container-lowest', 'shadow-sm', 'text-primary');
+                btnSignin.classList.add('text-on-surface-variant');
+            } else {
+                title.innerText = 'Welcome back';
+                subtitle.innerText = 'Please enter your details.';
+                submitBtn.innerText = 'Sign in';
+                nameField.classList.add('hidden');
+                forgotLink.classList.remove('hidden');
+
+                btnSignin.classList.add('bg-surface-container-lowest', 'shadow-sm', 'text-primary');
+                btnSignin.classList.remove('text-on-surface-variant');
+                btnSignup.classList.remove('bg-surface-container-lowest', 'shadow-sm', 'text-primary');
+                btnSignup.classList.add('text-on-surface-variant');
+            }
+        }
+
+        // Simple interaction for the visibility toggle
+        document.querySelector('button[type="button"]').addEventListener('click', function() {
+            const input = document.getElementById('password');
+            const icon = this.querySelector('span');
+            if (input.type === 'password') {
+                input.type = 'text';
+                icon.textContent = 'visibility_off';
+            } else {
+                input.type = 'password';
+                icon.textContent = 'visibility';
+            }
+        });
+    </script>
+</body></html>

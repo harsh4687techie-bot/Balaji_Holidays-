@@ -1,0 +1,85 @@
+<!-- Navbar Partial -->
+<header class="bg-surface/90 backdrop-blur-md sticky top-0 z-50 shadow-[0px_4px_20px_rgba(26,54,93,0.05)] h-20 flex items-center" id="main-navbar">
+  <nav class="flex justify-between items-center w-full px-margin-desktop max-w-container-max mx-auto">
+    <!-- Brand -->
+    <a href="{% url 'landing' %}" class="font-headline-md text-headline-md font-bold text-primary tracking-tight">Balaji Holidays</a>
+
+    <!-- Desktop Navigation -->
+    <div class="hidden md:flex items-center gap-8">
+      <a href="{% url 'destination_search' %}"
+         class="text-on-surface-variant font-body-md text-body-md hover:text-primary transition-colors duration-200
+         {% if request.resolver_match.url_name == 'destination_search' %}text-primary font-bold border-b-2 border-primary pb-1{% endif %}">
+        Explore
+      </a>
+      <a href="{% url 'trip_planner' %}"
+         class="text-on-surface-variant font-body-md text-body-md hover:text-primary transition-colors duration-200
+         {% if request.resolver_match.url_name == 'trip_planner' %}text-primary font-bold border-b-2 border-primary pb-1{% endif %}">
+        Planner
+      </a>
+      <a href="{% url 'hidden_gems' %}"
+         class="text-on-surface-variant font-body-md text-body-md hover:text-primary transition-colors duration-200
+         {% if request.resolver_match.url_name == 'hidden_gems' %}text-primary font-bold border-b-2 border-primary pb-1{% endif %}">
+        Hidden Gems
+      </a>
+      {% if user.is_authenticated %}
+      <a href="{% url 'saved_trips' %}"
+         class="text-on-surface-variant font-body-md text-body-md hover:text-primary transition-colors duration-200
+         {% if request.resolver_match.url_name == 'saved_trips' %}text-primary font-bold border-b-2 border-primary pb-1{% endif %}">
+        Saved
+      </a>
+      {% endif %}
+    </div>
+
+    <!-- Auth Buttons -->
+    <div class="flex items-center gap-4">
+      {% if user.is_authenticated %}
+        {% if user.is_staff %}
+        <a href="{% url 'admin_dashboard' %}" class="hidden md:flex items-center gap-1 text-secondary font-semibold text-sm hover:opacity-80 transition-all">
+          <span class="material-symbols-outlined text-[18px]">admin_panel_settings</span>
+          Admin
+        </a>
+        {% endif %}
+        <a href="{% url 'profile' %}" class="flex items-center gap-2 hover:opacity-80 transition-all">
+          <div class="w-9 h-9 rounded-full bg-primary-container text-on-primary flex items-center justify-center font-bold text-sm shadow-sm">
+            {{ user.first_name|first|default:user.username|first|upper }}
+          </div>
+          <span class="hidden md:block text-sm font-semibold text-on-surface">{{ user.first_name|default:user.username }}</span>
+        </a>
+        <form method="post" action="{% url 'logout' %}" class="hidden md:block">
+          {% csrf_token %}
+          <button type="submit" class="text-sm text-on-surface-variant hover:text-primary transition-colors font-medium">Sign out</button>
+        </form>
+      {% else %}
+        <a href="{% url 'login' %}" class="hidden md:block text-primary font-bold hover:opacity-80 active:scale-95 transition-all">Login</a>
+        <a href="{% url 'signup' %}" class="bg-primary text-on-primary px-6 py-2.5 rounded-full font-bold hover:shadow-lg active:scale-95 transition-all text-sm">Sign Up</a>
+      {% endif %}
+
+      <!-- Mobile menu button -->
+      <button id="mobile-menu-btn" class="md:hidden p-2 text-primary" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+        <span class="material-symbols-outlined">menu</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Dropdown -->
+  <div id="mobile-menu" class="hidden absolute top-20 left-0 right-0 bg-surface-container-lowest shadow-lg border-t border-outline-variant z-50 py-4 px-6 space-y-3">
+    <a href="{% url 'destination_search' %}" class="block py-2 text-on-surface hover:text-primary font-medium">Explore Destinations</a>
+    <a href="{% url 'trip_planner' %}" class="block py-2 text-on-surface hover:text-primary font-medium">Trip Planner</a>
+    <a href="{% url 'hidden_gems' %}" class="block py-2 text-on-surface hover:text-primary font-medium">Hidden Gems</a>
+    <a href="{% url 'map_view' %}" class="block py-2 text-on-surface hover:text-primary font-medium">Map View</a>
+    <a href="{% url 'faq' %}" class="block py-2 text-on-surface hover:text-primary font-medium">Help / FAQ</a>
+    <div class="border-t border-outline-variant pt-3">
+      {% if user.is_authenticated %}
+        <a href="{% url 'saved_trips' %}" class="block py-2 text-on-surface hover:text-primary font-medium">My Saved Trips</a>
+        <a href="{% url 'profile' %}" class="block py-2 text-on-surface hover:text-primary font-medium">Profile & Settings</a>
+        <form method="post" action="{% url 'logout' %}">
+          {% csrf_token %}
+          <button type="submit" class="block py-2 text-error font-medium w-full text-left">Sign out</button>
+        </form>
+      {% else %}
+        <a href="{% url 'login' %}" class="block py-2 text-primary font-bold">Login</a>
+        <a href="{% url 'signup' %}" class="block mt-2 bg-primary text-on-primary text-center py-3 rounded-xl font-bold">Sign Up Free</a>
+      {% endif %}
+    </div>
+  </div>
+</header>

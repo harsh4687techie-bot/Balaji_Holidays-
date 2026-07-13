@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Destination Detail | Balaji Holidays</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary-container": "#86a0cd",
+                    "outline": "#74777f",
+                    "surface": "#f7fafc",
+                    "error-container": "#ffdad6",
+                    "tertiary-container": "#4f2e00",
+                    "primary-fixed": "#d6e3ff",
+                    "surface-bright": "#f7fafc",
+                    "secondary-container": "#a2eded",
+                    "primary-container": "#1a365d",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary-fixed": "#002020",
+                    "on-background": "#181c1e",
+                    "on-secondary": "#ffffff",
+                    "surface-tint": "#455f88",
+                    "on-primary-fixed-variant": "#2d476f",
+                    "on-tertiary-container": "#d4903b",
+                    "background": "#f7fafc",
+                    "surface-container-low": "#f1f4f6",
+                    "inverse-surface": "#2d3133",
+                    "surface-container-highest": "#e0e3e5",
+                    "tertiary-fixed-dim": "#ffb866",
+                    "outline-variant": "#c4c6cf",
+                    "error": "#ba1a1a",
+                    "surface-container-high": "#e5e9eb",
+                    "tertiary": "#321b00",
+                    "secondary": "#13696a",
+                    "on-surface": "#181c1e",
+                    "on-primary": "#ffffff",
+                    "secondary-fixed-dim": "#89d3d4",
+                    "on-surface-variant": "#43474e",
+                    "on-error-container": "#93000a",
+                    "secondary-fixed": "#a5eff0",
+                    "on-error": "#ffffff",
+                    "inverse-on-surface": "#eef1f3",
+                    "on-secondary-fixed-variant": "#004f50",
+                    "tertiary-fixed": "#ffddba",
+                    "surface-container": "#ebeef0",
+                    "primary-fixed-dim": "#adc7f7",
+                    "surface-dim": "#d7dadc",
+                    "saffron": "#F4A261"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-desktop": "40px",
+                    "unit": "8px",
+                    "container-max": "1280px",
+                    "margin-mobile": "16px",
+                    "gutter": "24px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Montserrat"],
+                    "display-lg": ["Montserrat"],
+                    "body-md": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "display-lg-mobile": ["Montserrat"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "label-sm": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "display-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+      }
+      .hide-scrollbar::-webkit-scrollbar { display: none; }
+      .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+      
+      .glass-card {
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+      }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md selection:bg-secondary/30">
+<!-- TopNavBar -->
+<header class="bg-surface/90 dark:bg-surface-container-highest/90 backdrop-blur-md shadow-[0px_4px_20px_rgba(26,54,93,0.05)] docked full-width top-0 sticky z-50">
+<div class="flex justify-between items-center w-full px-margin-desktop h-20 max-w-container-max mx-auto">
+<div class="flex items-center gap-8">
+<a class="font-headline-md text-headline-md font-bold text-primary dark:text-inverse-primary tracking-tight" href="#">Balaji Holidays</a>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-primary dark:text-inverse-primary font-bold border-b-2 border-primary dark:border-inverse-primary pb-1 font-body-md text-body-md" href="#">Explore</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary transition-colors duration-200 font-body-md text-body-md" href="#">Planner</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary transition-colors duration-200 font-body-md text-body-md" href="#">Hidden Gems</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary transition-colors duration-200 font-body-md text-body-md" href="#">Saved</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="hidden md:block text-primary font-semibold hover:opacity-80 active:scale-95 transition-all">Login</button>
+<button class="bg-primary text-on-primary px-6 py-2.5 rounded-full font-semibold active:scale-95 transition-all shadow-sm">Sign Up</button>
+</div>
+</div>
+</header>
+<main>
+<!-- Hero Banner -->
+<section class="relative h-[870px] w-full overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-t from-primary/60 via-transparent to-transparent z-10"></div>
+<img class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-[10s] ease-linear" data-alt="A breathtaking panoramic wide shot of the Amalfi Coast at sunset, featuring colorful terracotta houses cascading down steep limestone cliffs into a sparkling turquoise Mediterranean Sea. The lighting is warm and golden, casting long shadows and a romantic glow over the coastal town of Positano. The aesthetic is clean, luxurious, and editorial, perfectly aligned with a high-end travel discovery platform's visual identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJnbvpjOJv6cHqTsdNb5DfI7R0co86exk_WhTq4f4KNKrOGVRXYE4a7oaXe3KAYjOOghV0Vor26JARHMuvpNKHq9OtAOJtknis-fhEEWd9N-8hs0hbdNCBbWkaMR1g_iDgrtP0PngFdplGW7F48CEADZy_aUeKdsy_9J348lPmNzxDiVY4ud6rfDouhHBibHMJ_H0dsG5dNo9I7D05HwUuIuqt6hvEX8DeBRlkCkhtK2j5VWTaYkJ5m2T5dHhNTG7M8iQpV6tDIbn2"/>
+<div class="absolute bottom-0 left-0 w-full z-20 pb-20 px-margin-desktop max-w-container-max mx-auto left-1/2 -translate-x-1/2">
+<div class="flex flex-col gap-4 max-w-3xl">
+<div class="flex items-center gap-2 text-on-primary/90">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">location_on</span>
+<span class="uppercase tracking-widest font-label-sm text-label-sm">Italy • Amalfi Coast</span>
+</div>
+<h1 class="text-on-primary font-display-lg text-display-lg md:text-display-lg leading-tight">Positano: The Vertical Dream</h1>
+<p class="text-on-primary/80 font-body-lg text-body-lg max-w-xl">Experience the pinnacle of Mediterranean luxury where jagged cliffs meet azure waters in a symphony of pastel architecture.</p>
+</div>
+</div>
+</section>
+<!-- Quick Info Grid -->
+<section class="relative z-30 -mt-16 px-margin-desktop max-w-container-max mx-auto">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-gutter bg-surface-container-lowest p-unit rounded-2xl shadow-[0px_10px_30px_rgba(26,54,93,0.12)] border border-outline-variant/30">
+<div class="flex flex-col items-center justify-center p-6 border-r border-outline-variant/20 last:border-0">
+<span class="material-symbols-outlined text-secondary mb-2" style="font-size: 32px;">calendar_month</span>
+<span class="text-on-surface-variant font-label-sm text-label-sm mb-1 uppercase">Best Time</span>
+<span class="font-bold text-primary">May to September</span>
+</div>
+<div class="flex flex-col items-center justify-center p-6 md:border-r border-outline-variant/20 last:border-0">
+<span class="material-symbols-outlined text-secondary mb-2" style="font-size: 32px;">payments</span>
+<span class="text-on-surface-variant font-label-sm text-label-sm mb-1 uppercase">Currency</span>
+<span class="font-bold text-primary">Euro (EUR)</span>
+</div>
+<div class="flex flex-col items-center justify-center p-6 border-r border-outline-variant/20 last:border-0">
+<span class="material-symbols-outlined text-secondary mb-2" style="font-size: 32px;">translate</span>
+<span class="text-on-surface-variant font-label-sm text-label-sm mb-1 uppercase">Language</span>
+<span class="font-bold text-primary">Italian / English</span>
+</div>
+<div class="flex flex-col items-center justify-center p-6">
+<span class="material-symbols-outlined text-secondary mb-2" style="font-size: 32px;">thermostat</span>
+<span class="text-on-surface-variant font-label-sm text-label-sm mb-1 uppercase">Weather</span>
+<span class="font-bold text-primary">24°C Sunny</span>
+</div>
+</div>
+</section>
+<!-- Overview & Gallery Bento -->
+<section class="py-24 px-margin-desktop max-w-container-max mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+<!-- Overview -->
+<div class="lg:col-span-7 flex flex-col gap-8">
+<div class="flex flex-col gap-4">
+<h2 class="font-headline-md text-headline-md text-primary flex items-center gap-3">
+<span class="w-12 h-[2px] bg-secondary"></span>
+                            Overview
+                        </h2>
+<div class="space-y-6 text-on-surface-variant leading-relaxed text-body-lg">
+<p>Positano is a cliffside village on southern Italy's Amalfi Coast. It's a well-known holiday destination with a pebble beachfront and steep, narrow streets lined with boutiques and cafes. Its Chiesa di Santa Maria Assunta features a majolica-tiled dome and a 13th-century Byzantine icon of the Virgin Mary.</p>
+<p>Beyond the scenic views, Positano offers a gateway to the "Sentiero degli Dei" (Path of the Gods), a hiking trail that provides spectacular aerial views of the entire coastline. The village itself is a masterpiece of urban planning, where every level of stairs leads to a new discovery of Mediterranean flavors and artisanal crafts.</p>
+</div>
+</div>
+<!-- Highlight Tags -->
+<div class="flex flex-wrap gap-3 mt-4">
+<span class="px-4 py-2 bg-secondary/10 text-secondary rounded-full font-label-sm text-label-sm">Coastal Luxury</span>
+<span class="px-4 py-2 bg-secondary/10 text-secondary rounded-full font-label-sm text-label-sm">UNESCO Site</span>
+<span class="px-4 py-2 bg-secondary/10 text-secondary rounded-full font-label-sm text-label-sm">Gourmet Dining</span>
+<span class="px-4 py-2 bg-secondary/10 text-secondary rounded-full font-label-sm text-label-sm">Historic Sites</span>
+</div>
+</div>
+<!-- Gallery Grid -->
+<div class="lg:col-span-5 grid grid-cols-2 gap-4">
+<div class="relative rounded-2xl overflow-hidden h-64 group cursor-pointer" onclick="openLightbox(0)">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="A detailed close-up shot of the vibrant pink bougainvillea flowers framing a view of the Amalfi coast's blue waters. The soft daylight illuminates the delicate petals and the shimmering sea in the background. The aesthetic is warm, inviting, and captures the natural beauty of an Italian summer with professional, crisp photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCbX3H5qrfoKq43MAPGEkZc3gvO7o_a8HuKbTpxDjUnv8uRs8cyQon18ssEPe1Pnzsp_aPCWtiFq2o2XXPtOeQ4h2FcJOEiZRXZatsj1cfnGbVjLH3IyQtAYv_FIsbabFChez3JevXxPRQWsy1lXzkgbtimxIpLKSNftHaMiiX0fj7zGB_XNj1dctHaUo3FK_jyHIX7cIaP-eIKGKScl4GjPsozdluPtc58YIMngatGJPmSHvVQDpFwjdwDAqSpoO1YPFTHnVjtRIKa"/>
+</div>
+<div class="relative rounded-2xl overflow-hidden h-64 group cursor-pointer" onclick="openLightbox(1)">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="An atmospheric evening shot of a candlelit dinner on a balcony overlooking the sparkling lights of Positano village at night. The deep blue twilight sky and the warm orange glow of the streetlights create a magical, romantic contrast. The high-end editorial style emphasizes luxury travel and exquisite dining experiences." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZA20wKPFc3n0H1ecbgnrym4D500dCBXL4xk7U8JsyOaOlHO6ZXIvuvLYDUtXOkNthPwUVxVf2VomNCassmyWNrprQTA3Sz8gRFnKLFEYy4IgFFbi5VTu0uFiE_YgzW-p0kQehX8ARD4B9JfNgbhfkR7KHCQh_36GV4Iigf4bSyU0IoM4xJ-OBJ4wcTDsifE5oLwM6Xt2-PyUNd1JeiyUtbzi1Mg1Wkxnwe42BHpMuub8r7M8-dvncx96Xwy4GWiQRmFjDOnGIzuJn"/>
+</div>
+<div class="relative rounded-2xl overflow-hidden h-64 col-span-2 group cursor-pointer" onclick="openLightbox(2)">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="An aerial wide shot of the Spiaggia Grande beach in Positano, filled with rows of perfectly aligned blue and orange beach umbrellas. The crystal clear water laps against the dark pebble shore, while the pastel houses rise majestically in the background. The composition is clean and geometric, following a premium modern editorial travel aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAvBmgZJiklFp3zTg4Nz7RmHewOPXD3viKp5_cYeHAktk4ANd0zhcdrPwpcnKJGfZtwNXwhGt0UyGYyz1H7XHJemT4QC3zEtz1mJPXHHLuBWySy4mEgR-VWgbQQr1WcDifblY1Rmk3lfPb_nID0OKtGcQvtQMt2fecy9ox0S_RDBEn3Py-V6SLbW5SSSi2cWmrnBHlP8lcJ5SjKyQo3XGKQ4IXy2nn8jbFVGHuxXmYgZ6bSc6EqQroU3wZ2xMZ5ncPO67EQfW1sxOwY"/>
+<div class="absolute inset-0 bg-black/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="text-on-primary font-bold flex items-center gap-2">
+<span class="material-symbols-outlined">zoom_in</span> View Gallery
+                            </span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Nearby Attractions Horizontal Scroll -->
+<section class="py-16 bg-surface-container-low overflow-hidden">
+<div class="px-margin-desktop max-w-container-max mx-auto mb-10 flex justify-between items-end">
+<div>
+<h2 class="font-headline-md text-headline-md text-primary mb-2">Nearby Attractions</h2>
+<p class="text-on-surface-variant">Extend your journey to these iconic coastal gems.</p>
+</div>
+<div class="flex gap-4">
+<button class="w-12 h-12 rounded-full border border-outline-variant flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-all active:scale-90" onclick="scrollSlider(-1)">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="w-12 h-12 rounded-full border border-outline-variant flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-all active:scale-90" onclick="scrollSlider(1)">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+<div class="flex gap-gutter px-margin-desktop overflow-x-auto hide-scrollbar scroll-smooth snap-x snap-mandatory" id="attractions-slider">
+<!-- Card 1 -->
+<div class="min-w-[300px] md:min-w-[400px] snap-start group">
+<div class="relative aspect-[4/5] rounded-3xl overflow-hidden mb-4 shadow-sm">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A wide, sweeping landscape of the Path of the Gods hiking trail on the Amalfi Coast. The rugged limestone cliffs drop steeply into the deep blue sea, with lush green Mediterranean vegetation in the foreground. The lighting is crisp morning sun, highlighting the dramatic geography and breathtaking vistas of the Italian coastline." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDXoXNcmXbV0IVplrre-qdoe8B1w5BeUw6xqSfdWXnwpr5siTfOOO_VEk419IU6K2nyzNwEPzChHQmfkzcd7eu_L0_11pB2i-VcQNSus0KzupN-bi-ZZNmIR6bdehmJllmDxFmw633z27orIEt1cQHv_T2qWg_17Jto3IksL9_Y6uz5As10VzNU-fajmGUyKp2xrQ3usLHv3_lQJbKyqAYivj1Qz8nTIkBIxB2ezYwwa0GZSgtSSTd-W0-fLxCdxtfHGQz3_vLH1wOe"/>
+<div class="absolute top-4 left-4">
+<span class="bg-white/90 backdrop-blur px-3 py-1.5 rounded-full text-xs font-bold text-primary uppercase">Adventure</span>
+</div>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary group-hover:text-secondary transition-colors">Path of the Gods</h3>
+<p class="text-on-surface-variant">A legendary hiking trail offering the coast's best vistas.</p>
+</div>
+<!-- Card 2 -->
+<div class="min-w-[300px] md:min-w-[400px] snap-start group">
+<div class="relative aspect-[4/5] rounded-3xl overflow-hidden mb-4 shadow-sm">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A glamorous shot of a wooden Riva speedboat cruising through the azure waters surrounding the island of Capri. In the background, the iconic Faraglioni rock formations rise majestically from the sea. The lighting is high-key and bright, evoking a sense of classic Italian luxury and high-end summer exploration." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCygl__5JgDfjjkvgrpMyQekgia-oZXzt3WetEY2zUOMa1AMOXcO8rWRAf6mRNl1bHEI8Uuv9U5REkaqmlnERNDKcJ-pHlS_d5Nuk4Px3Lh74juVu1_uXq_kkfJzix0NmFOkRw4VujlpGsAgZ6-x2Pg0vt8uzWT9027ND499Lxl_-030L6QZAGPdQm3SLMDA82D0JhzXgk8G-ol-aorlttL4jjMTBI06nltU0CjMloIa-QZrjSeDvADWpL94pmfc7bsfMpNaMHsqW8T"/>
+<div class="absolute top-4 left-4">
+<span class="bg-white/90 backdrop-blur px-3 py-1.5 rounded-full text-xs font-bold text-primary uppercase">Island</span>
+</div>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary group-hover:text-secondary transition-colors">Island of Capri</h3>
+<p class="text-on-surface-variant">Just a short ferry ride to luxury boutiques and sea caves.</p>
+</div>
+<!-- Card 3 -->
+<div class="min-w-[300px] md:min-w-[400px] snap-start group">
+<div class="relative aspect-[4/5] rounded-3xl overflow-hidden mb-4 shadow-sm">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A wide panoramic shot of the town of Amalfi, showing the grand cathedral steps and the historic harbor. The architecture is a mix of medieval and Mediterranean styles, bathed in the soft, warm light of late afternoon. The scene is bustling with life yet maintains a serene, timeless quality consistent with premium travel branding." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsIHtu7ZUZTEY1gGc12ditq3ElyS-evCi3zOflBHHN-cKY7e8aA8s8CZNmoa8NsvHcIa9oHOqeYaAxogUWTVzs9973tCy1l4gbMd5A8B4wlqlZB62ez4FPqueRJuHLpSRIpnrSa2pP52L3eQV1aGiLzP7H0RheANgLc2I2AK2z3lxG9jmz5VRVGFFrKLnFENv8XbOd2ESc3NyLjzdnU8pYRmZfvrUOh8ZWSQjYb51wSBMVMoRF3zddxS_9AXoxNmt1Ke-dmMsc4sMC"/>
+<div class="absolute top-4 left-4">
+<span class="bg-white/90 backdrop-blur px-3 py-1.5 rounded-full text-xs font-bold text-primary uppercase">History</span>
+</div>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary group-hover:text-secondary transition-colors">Town of Amalfi</h3>
+<p class="text-on-surface-variant">Explore the historic maritime republic and its cathedral.</p>
+</div>
+<!-- Card 4 -->
+<div class="min-w-[300px] md:min-w-[400px] snap-start group">
+<div class="relative aspect-[4/5] rounded-3xl overflow-hidden mb-4 shadow-sm">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A serene shot of the terrace at Villa Rufolo in Ravello, featuring geometric flower beds in full bloom and a panoramic view of the coastline far below. The atmosphere is peaceful and scholarly, with the elegant architecture of the villa framing the natural beauty of the Gulf of Salerno in a clean, editorial style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvecmPx07lehidAh8BuhkqJNsxM-OWBpgUds7g6m8Y65GrOf0ol5bMvphd4UDqBySBwaoQpX4gpSTVFcZGD_ICbND4oMi19RvdNCBreADrKJIJg0t76WBIkcPb5fDsjC1LPDWDPlYYb6vymhVQAFJXDGgI-aSEeviUqVtDEXeZB6D7dvUS43EvOeIwvHrw3r60_CYwckHToeTRdpL5hNcC6QeNJGBDV-2gFvMH1dF51GLKK7ds1FXFAf25k2DfcVYmEpAi_w2BK5Ym"/>
+<div class="absolute top-4 left-4">
+<span class="bg-white/90 backdrop-blur px-3 py-1.5 rounded-full text-xs font-bold text-primary uppercase">Culture</span>
+</div>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary group-hover:text-secondary transition-colors">Ravello Gardens</h3>
+<p class="text-on-surface-variant">The "City of Music" perched high above the Mediterranean.</p>
+</div>
+</div>
+</section>
+<!-- Bottom CTA -->
+<section class="py-24 px-margin-desktop max-w-container-max mx-auto text-center">
+<div class="bg-primary-container p-12 md:p-20 rounded-[40px] relative overflow-hidden">
+<div class="absolute inset-0 opacity-20">
+<div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
+</div>
+<div class="relative z-10 max-w-2xl mx-auto flex flex-col gap-8 items-center">
+<h2 class="text-on-primary font-display-lg text-display-lg-mobile md:text-display-lg">Ready to experience Positano?</h2>
+<p class="text-on-primary-container font-body-lg text-body-lg">Join 15,000+ travelers who planned their dream Italian getaway with Balaji Holidays this year.</p>
+<button class="bg-saffron text-primary px-10 py-5 rounded-full font-bold text-lg hover:scale-105 active:scale-95 transition-all shadow-xl">
+                        Start Planning Your Trip
+                    </button>
+</div>
+</div>
+</section>
+</main>
+<!-- Floating Action Button -->
+<button class="fixed bottom-10 right-10 z-50 bg-saffron text-primary p-4 rounded-full shadow-2xl flex items-center gap-3 hover:pr-8 group transition-all active:scale-90" id="fab-trip">
+<span class="material-symbols-outlined font-bold">add_circle</span>
+<span class="max-w-0 overflow-hidden group-hover:max-w-xs transition-all duration-300 font-bold whitespace-nowrap">Add to Trip</span>
+</button>
+<!-- Footer -->
+<footer class="bg-primary dark:bg-surface-container-lowest w-full mt-16">
+<div class="flex flex-col md:flex-row justify-between items-center py-12 px-margin-desktop w-full max-w-container-max mx-auto">
+<div class="flex flex-col gap-4 mb-8 md:mb-0">
+<span class="font-headline-md text-headline-md font-bold text-on-primary dark:text-primary">Balaji Holidays</span>
+<p class="text-on-primary/60 dark:text-primary/60 font-body-md text-body-md">Curating extraordinary journeys since 1994.</p>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 gap-8 mb-8 md:mb-0">
+<div class="flex flex-col gap-3">
+<span class="text-on-primary font-bold uppercase tracking-widest text-xs mb-2 opacity-50">Company</span>
+<a class="text-on-primary/80 dark:text-primary/70 hover:text-secondary-fixed transition-colors font-body-md text-body-md" href="#">About Us</a>
+<a class="text-on-primary/80 dark:text-primary/70 hover:text-secondary-fixed transition-colors font-body-md text-body-md" href="#">Contact Support</a>
+</div>
+<div class="flex flex-col gap-3">
+<span class="text-on-primary font-bold uppercase tracking-widest text-xs mb-2 opacity-50">Legal</span>
+<a class="text-on-primary/80 dark:text-primary/70 hover:text-secondary-fixed transition-colors font-body-md text-body-md" href="#">Terms of Service</a>
+<a class="text-on-primary/80 dark:text-primary/70 hover:text-secondary-fixed transition-colors font-body-md text-body-md" href="#">Privacy Policy</a>
+</div>
+<div class="flex flex-col gap-3">
+<span class="text-on-primary font-bold uppercase tracking-widest text-xs mb-2 opacity-50">Explore</span>
+<a class="text-on-primary/80 dark:text-primary/70 hover:text-secondary-fixed transition-colors font-body-md text-body-md" href="#">Travel Guides</a>
+<a class="text-on-primary/80 dark:text-primary/70 hover:text-secondary-fixed transition-colors font-body-md text-body-md" href="#">FAQ</a>
+</div>
+</div>
+</div>
+<div class="border-t border-white/10 py-6 px-margin-desktop w-full max-w-container-max mx-auto flex justify-center items-center">
+<p class="text-on-primary/50 dark:text-primary/50 font-label-sm text-label-sm">© 2024 Balaji Holidays. All rights reserved.</p>
+</div>
+</footer>
+<!-- Simple Lightbox Modal -->
+<div class="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center p-8 hidden opacity-0 transition-opacity duration-300" id="lightbox">
+<button class="absolute top-8 right-8 text-white p-2 hover:bg-white/10 rounded-full transition-colors" onclick="closeLightbox()">
+<span class="material-symbols-outlined" style="font-size: 32px;">close</span>
+</button>
+<button class="absolute left-8 text-white p-4 hover:bg-white/10 rounded-full transition-colors" onclick="changeLightBox(-1)">
+<span class="material-symbols-outlined" style="font-size: 48px;">chevron_left</span>
+</button>
+<div class="max-w-5xl w-full h-full flex flex-col items-center justify-center">
+<img alt="" class="max-h-[819px] object-contain rounded-lg shadow-2xl" id="lightbox-img" src=""/>
+<p class="text-white/80 mt-6 font-body-lg text-center max-w-2xl" id="lightbox-caption"></p>
+</div>
+<button class="absolute right-8 text-white p-4 hover:bg-white/10 rounded-full transition-colors" onclick="changeLightBox(1)">
+<span class="material-symbols-outlined" style="font-size: 48px;">chevron_right</span>
+</button>
+</div>
+<script>
+        // Horizontal Scroll Controls
+        function scrollSlider(direction) {
+            const slider = document.getElementById('attractions-slider');
+            const scrollAmount = 400;
+            slider.scrollBy({
+                left: direction * scrollAmount,
+                behavior: 'smooth'
+            });
+        }
+
+        // Lightbox Logic
+        const galleryData = [
+            {
+                src: "placeholder",
+                caption: "Bougainvillea blooms framing the turquoise waters of the Mediterranean.",
+                altPrompt: "A detailed close-up shot of the vibrant pink bougainvillea flowers framing a view of the Amalfi coast's blue waters. The soft daylight illuminates the delicate petals and the shimmering sea in the background. The aesthetic is warm, inviting, and captures the natural beauty of an Italian summer with professional, crisp photography."
+            },
+            {
+                src: "placeholder",
+                caption: "Al Fresco dining with views of the illuminated Positano cliffs.",
+                altPrompt: "An atmospheric evening shot of a candlelit dinner on a balcony overlooking the sparkling lights of Positano village at night. The deep blue twilight sky and the warm orange glow of the streetlights create a magical, romantic contrast. The high-end editorial style emphasizes luxury travel and exquisite dining experiences."
+            },
+            {
+                src: "placeholder",
+                caption: "The iconic Spiaggia Grande with its famous sunbeds and umbrellas.",
+                altPrompt: "An aerial wide shot of the Spiaggia Grande beach in Positano, filled with rows of perfectly aligned blue and orange beach umbrellas. The crystal clear water laps against the dark pebble shore, while the pastel houses rise majestically in the background. The composition is clean and geometric, following a premium modern editorial travel aesthetic."
+            }
+        ];
+
+        let currentLightboxIndex = 0;
+
+        function openLightbox(index) {
+            currentLightboxIndex = index;
+            updateLightbox();
+            const lb = document.getElementById('lightbox');
+            lb.classList.remove('hidden');
+            setTimeout(() => lb.classList.replace('opacity-0', 'opacity-100'), 10);
+        }
+
+        function closeLightbox() {
+            const lb = document.getElementById('lightbox');
+            lb.classList.replace('opacity-100', 'opacity-0');
+            setTimeout(() => lb.classList.add('hidden'), 300);
+        }
+
+        function changeLightBox(direction) {
+            currentLightboxIndex = (currentLightboxIndex + direction + galleryData.length) % galleryData.length;
+            updateLightbox();
+        }
+
+        function updateLightbox() {
+            const img = document.getElementById('lightbox-img');
+            const cap = document.getElementById('lightbox-caption');
+            const data = galleryData[currentLightboxIndex];
+            
+            img.src = data.src;
+            img.setAttribute('data-alt', data.altPrompt);
+            cap.innerText = data.caption;
+        }
+
+        // FAB Animation on scroll
+        window.addEventListener('scroll', () => {
+            const fab = document.getElementById('fab-trip');
+            if (window.scrollY > 300) {
+                fab.classList.add('scale-100');
+                fab.classList.remove('scale-0');
+            } else {
+                fab.classList.remove('scale-100');
+                fab.classList.add('scale-0');
+            }
+        });
+
+        // Initialize FAB state
+        document.getElementById('fab-trip').classList.add('scale-0');
+    </script>
+</body></html>

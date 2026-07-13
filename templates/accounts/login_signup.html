@@ -1,0 +1,173 @@
+{% extends 'base.html' %}
+{% block title %}{% if active_tab == 'signin' %}Sign In{% else %}Create Account{% endif %} | Balaji Holidays{% endblock %}
+{% block no_footer %}{% endblock %}
+
+{% block content %}
+<main class="min-h-screen flex items-center justify-center py-8 px-4">
+  <div class="w-full max-w-[1100px] flex flex-col lg:flex-row bg-surface-container-lowest lg:rounded-2xl overflow-hidden lg:shadow-[0px_4px_20px_rgba(26,54,93,0.05)]">
+
+    <!-- Left: Branding Panel -->
+    <section class="hidden lg:flex flex-col flex-1 bg-primary-container relative p-12 justify-between overflow-hidden">
+      <div class="absolute -top-20 -left-20 w-80 h-80 bg-primary/20 rounded-full blur-3xl"></div>
+      <div class="relative z-10">
+        <a href="{% url 'landing' %}" class="font-headline-md text-headline-md font-bold text-on-primary">Balaji Holidays</a>
+        <p class="mt-4 font-body-lg text-body-lg text-on-primary-container max-w-xs leading-relaxed">Your journey to the world's most hidden gems begins here.</p>
+      </div>
+      <div class="relative z-10 flex-grow flex items-center justify-center">
+        <div class="w-full max-w-xs text-center">
+          <div class="w-48 h-48 mx-auto bg-primary/20 rounded-full flex items-center justify-center mb-6">
+            <span class="material-symbols-outlined text-on-primary text-8xl" style="font-variation-settings:'FILL' 1;">flight_takeoff</span>
+          </div>
+          <p class="text-on-primary-container italic text-lg">"Travel is the only thing you buy that makes you richer."</p>
+        </div>
+      </div>
+      <div class="relative z-10 pt-8 border-t border-on-primary-container/20">
+        <p class="text-label-sm font-label-sm text-on-primary-container">Join 20,000+ fellow travelers already exploring with us.</p>
+      </div>
+    </section>
+
+    <!-- Right: Form Panel -->
+    <section class="flex-1 p-8 lg:p-16 flex flex-col justify-center bg-surface-container-lowest">
+      <div class="max-w-[400px] mx-auto w-full">
+        <!-- Toggle -->
+        <div class="bg-surface-container-low p-1 rounded-xl flex mb-8">
+          <button id="toggle-signin" onclick="switchForm('signin')"
+                  class="flex-1 py-2.5 text-label-sm font-label-sm rounded-lg transition-all duration-300
+                  {% if active_tab == 'signin' %}bg-surface-container-lowest shadow-sm text-primary{% else %}text-on-surface-variant hover:text-primary{% endif %}">
+            Sign in
+          </button>
+          <button id="toggle-signup" onclick="switchForm('signup')"
+                  class="flex-1 py-2.5 text-label-sm font-label-sm rounded-lg transition-all duration-300
+                  {% if active_tab == 'signup' %}bg-surface-container-lowest shadow-sm text-primary{% else %}text-on-surface-variant hover:text-primary{% endif %}">
+            Create account
+          </button>
+        </div>
+
+        <!-- Sign In Form -->
+        <div id="signin-panel" class="{% if active_tab == 'signup' %}hidden{% endif %}">
+          <h2 class="font-headline-md text-headline-md text-primary mb-1">Welcome back</h2>
+          <p class="text-on-surface-variant font-body-md mb-8">Please enter your details.</p>
+          <form method="post" action="{% url 'login' %}" class="space-y-5">
+            {% csrf_token %}
+            <input type="hidden" name="action" value="signin"/>
+            <div>
+              <label class="block text-label-sm font-label-sm text-on-surface-variant mb-1.5">Email address</label>
+              <div class="relative">
+                <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[20px]">mail</span>
+                <input name="username" type="email" placeholder="you@example.com" value="{{ login_form.username.value|default:'' }}"
+                       class="w-full pl-10 pr-4 py-3 bg-surface-container-low border border-transparent focus:border-primary focus:ring-1 focus:ring-primary rounded-xl text-body-md transition-all outline-none"/>
+              </div>
+              {% if login_form.username.errors %}<p class="text-error text-xs mt-1">{{ login_form.username.errors.0 }}</p>{% endif %}
+            </div>
+            <div>
+              <div class="flex justify-between items-center mb-1.5">
+                <label class="text-label-sm font-label-sm text-on-surface-variant">Password</label>
+                <a href="#" class="text-label-sm font-label-sm text-primary hover:underline">Forgot?</a>
+              </div>
+              <div class="relative">
+                <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[20px]">lock</span>
+                <input name="password" type="password" id="signin-pw" placeholder="••••••••"
+                       class="w-full pl-10 pr-10 py-3 bg-surface-container-low border border-transparent focus:border-primary focus:ring-1 focus:ring-primary rounded-xl text-body-md transition-all outline-none"/>
+                <button type="button" onclick="togglePw('signin-pw',this)" class="absolute right-3 top-1/2 -translate-y-1/2 text-outline hover:text-primary transition-colors">
+                  <span class="material-symbols-outlined text-[20px]">visibility</span>
+                </button>
+              </div>
+              {% if login_form.password.errors %}<p class="text-error text-xs mt-1">{{ login_form.password.errors.0 }}</p>{% endif %}
+              {% if login_form.non_field_errors %}<p class="text-error text-xs mt-1">{{ login_form.non_field_errors.0 }}</p>{% endif %}
+            </div>
+            <button type="submit" class="w-full bg-primary text-on-primary py-3.5 rounded-xl font-bold text-body-md hover:shadow-lg active:scale-95 transition-all">Sign In</button>
+          </form>
+          <p class="text-center text-sm text-on-surface-variant mt-6">Don't have an account? <button onclick="switchForm('signup')" class="text-primary font-bold hover:underline">Sign up free</button></p>
+        </div>
+
+        <!-- Sign Up Form -->
+        <div id="signup-panel" class="{% if active_tab == 'signin' %}hidden{% endif %}">
+          <h2 class="font-headline-md text-headline-md text-primary mb-1">Create your account</h2>
+          <p class="text-on-surface-variant font-body-md mb-8">Start your journey with Balaji Holidays.</p>
+          <form method="post" action="{% url 'signup' %}" class="space-y-5">
+            {% csrf_token %}
+            <input type="hidden" name="action" value="signup"/>
+            <div>
+              <label class="block text-label-sm font-label-sm text-on-surface-variant mb-1.5">Full Name</label>
+              <div class="relative">
+                <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[20px]">person</span>
+                <input name="full_name" type="text" placeholder="Enter your full name" value="{{ signup_form.full_name.value|default:'' }}"
+                       class="w-full pl-10 pr-4 py-3 bg-surface-container-low border border-transparent focus:border-primary focus:ring-1 focus:ring-primary rounded-xl text-body-md transition-all outline-none"/>
+              </div>
+              {% if signup_form.full_name.errors %}<p class="text-error text-xs mt-1">{{ signup_form.full_name.errors.0 }}</p>{% endif %}
+            </div>
+            <div>
+              <label class="block text-label-sm font-label-sm text-on-surface-variant mb-1.5">Email address</label>
+              <div class="relative">
+                <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[20px]">mail</span>
+                <input name="email" type="email" placeholder="you@example.com" value="{{ signup_form.email.value|default:'' }}"
+                       class="w-full pl-10 pr-4 py-3 bg-surface-container-low border border-transparent focus:border-primary focus:ring-1 focus:ring-primary rounded-xl text-body-md transition-all outline-none"/>
+              </div>
+              {% if signup_form.email.errors %}<p class="text-error text-xs mt-1">{{ signup_form.email.errors.0 }}</p>{% endif %}
+            </div>
+            <div>
+              <label class="block text-label-sm font-label-sm text-on-surface-variant mb-1.5">Password</label>
+              <div class="relative">
+                <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[20px]">lock</span>
+                <input name="password" type="password" id="signup-pw" placeholder="Min. 8 characters"
+                       class="w-full pl-10 pr-10 py-3 bg-surface-container-low border border-transparent focus:border-primary focus:ring-1 focus:ring-primary rounded-xl text-body-md transition-all outline-none"/>
+                <button type="button" onclick="togglePw('signup-pw',this)" class="absolute right-3 top-1/2 -translate-y-1/2 text-outline hover:text-primary transition-colors">
+                  <span class="material-symbols-outlined text-[20px]">visibility</span>
+                </button>
+              </div>
+              {% if signup_form.password.errors %}<p class="text-error text-xs mt-1">{{ signup_form.password.errors.0 }}</p>{% endif %}
+            </div>
+            <div>
+              <label class="block text-label-sm font-label-sm text-on-surface-variant mb-1.5">Confirm Password</label>
+              <div class="relative">
+                <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[20px]">lock</span>
+                <input name="confirm_password" type="password" placeholder="••••••••"
+                       class="w-full pl-10 pr-4 py-3 bg-surface-container-low border border-transparent focus:border-primary focus:ring-1 focus:ring-primary rounded-xl text-body-md transition-all outline-none"/>
+              </div>
+              {% if signup_form.confirm_password.errors %}<p class="text-error text-xs mt-1">{{ signup_form.confirm_password.errors.0 }}</p>{% endif %}
+            </div>
+            <label class="flex items-start gap-3 cursor-pointer">
+              <input name="agree_terms" type="checkbox" class="mt-1 w-4 h-4 accent-primary rounded"/>
+              <span class="text-sm text-on-surface-variant">I agree to the <a href="#" class="text-primary font-bold hover:underline">Terms of Service</a> and <a href="#" class="text-primary font-bold hover:underline">Privacy Policy</a></span>
+            </label>
+            {% if signup_form.agree_terms.errors %}<p class="text-error text-xs">{{ signup_form.agree_terms.errors.0 }}</p>{% endif %}
+            <button type="submit" class="w-full bg-primary text-on-primary py-3.5 rounded-xl font-bold text-body-md hover:shadow-lg active:scale-95 transition-all">Create Account</button>
+          </form>
+          <p class="text-center text-sm text-on-surface-variant mt-6">Already have an account? <button onclick="switchForm('signin')" class="text-primary font-bold hover:underline">Sign in</button></p>
+        </div>
+
+      </div>
+    </section>
+  </div>
+</main>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+function switchForm(tab) {
+  const signin = document.getElementById('signin-panel');
+  const signup = document.getElementById('signup-panel');
+  const btnIn = document.getElementById('toggle-signin');
+  const btnUp = document.getElementById('toggle-signup');
+  if (tab === 'signin') {
+    signin.classList.remove('hidden'); signup.classList.add('hidden');
+    btnIn.classList.add('bg-surface-container-lowest', 'shadow-sm', 'text-primary');
+    btnIn.classList.remove('text-on-surface-variant');
+    btnUp.classList.remove('bg-surface-container-lowest', 'shadow-sm', 'text-primary');
+    btnUp.classList.add('text-on-surface-variant');
+  } else {
+    signup.classList.remove('hidden'); signin.classList.add('hidden');
+    btnUp.classList.add('bg-surface-container-lowest', 'shadow-sm', 'text-primary');
+    btnUp.classList.remove('text-on-surface-variant');
+    btnIn.classList.remove('bg-surface-container-lowest', 'shadow-sm', 'text-primary');
+    btnIn.classList.add('text-on-surface-variant');
+  }
+}
+function togglePw(id, btn) {
+  const inp = document.getElementById(id);
+  const icon = btn.querySelector('.material-symbols-outlined');
+  if (inp.type === 'password') { inp.type = 'text'; icon.textContent = 'visibility_off'; }
+  else { inp.type = 'password'; icon.textContent = 'visibility'; }
+}
+</script>
+{% endblock %}

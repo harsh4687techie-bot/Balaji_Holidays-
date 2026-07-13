@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% block title %}{{ trip.title }} | Balaji Holidays{% endblock %}
+
+{% block content %}
+<div class="bg-primary py-12">
+  <div class="max-w-container-max mx-auto px-margin-desktop">
+    <div class="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+      <div>
+        <p class="text-saffron font-semibold uppercase tracking-[0.25em] text-sm">Your Itinerary</p>
+        <h1 class="font-display-lg text-display-lg text-on-primary mt-2">{{ trip.title }}</h1>
+        <p class="text-on-primary/80 mt-3">{{ trip.destination_name }} • {{ trip.get_budget_display }}</p>
+      </div>
+      {% if not is_shared_view and user.is_authenticated %}
+      <form method="post" action="{% url 'save_trip' trip.pk %}">
+        {% csrf_token %}
+        <button type="submit" class="bg-saffron text-primary px-5 py-3 rounded-xl font-semibold">{% if is_saved %}Unsave trip{% else %}Save trip{% endif %}</button>
+      </form>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+<section class="max-w-container-max mx-auto px-margin-desktop py-10">
+  {% if days %}
+  <div class="space-y-6">
+    {% for day_number, day in days.items %}
+    <div class="rounded-3xl bg-surface-container-lowest p-6 shadow-[0px_4px_20px_rgba(26,54,93,0.05)]">
+      <div class="flex items-center justify-between mb-5">
+        <div>
+          <p class="text-sm font-semibold uppercase tracking-[0.2em] text-secondary">Day {{ day.number }}</p>
+          <h2 class="font-headline-md text-headline-md text-primary mt-1">{{ day.title }}</h2>
+        </div>
+      </div>
+      <div class="grid md:grid-cols-3 gap-4">
+        {% for slot_name in 'MORNING AFTERNOON EVENING'|make_list %}
+        <div class="rounded-2xl bg-surface-container p-4">
+          <p class="text-sm font-semibold text-primary mb-3">{{ slot_name|title }}</p>
+          {% with items=day.items|get_item:slot_name %}
+          {% if items %}
+          <div class="space-y-3">
+            {% for item in items %}
+            <div class="rounded-xl border border-outline-variant/50 bg-surface-container-lowest p-3">
+              <p class="text-sm font-semibold text-primary">{{ item.title }}</p>
+              <p class="text-xs text-on-surface-variant mt-1">{{ item.time_range }}</p>
+              <p class="text-sm text-on-surface-variant mt-2">{{ item.description }}</p>
+            </div>
+            {% endfor %}
+          </div>
+          {% else %}
+          <p class="text-sm text-on-surface-variant">A relaxed pause or local discovery spot will be added here.</p>
+          {% endif %}
+          {% endwith %}
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  {% else %}
+  <div class="rounded-3xl border border-dashed border-outline-variant bg-surface-container-low p-10 text-center text-on-surface-variant">
+    <span class="material-symbols-outlined text-5xl block mb-3">route</span>
+    <p>No itinerary items have been created for this trip yet.</p>
+  </div>
+  {% endif %}
+</section>
+{% endblock %}

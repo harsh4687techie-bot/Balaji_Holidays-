@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block title %}Saved Trips | Balaji Holidays{% endblock %}
+
+{% block content %}
+<div class="bg-primary py-12">
+  <div class="max-w-container-max mx-auto px-margin-desktop">
+    <h1 class="font-display-lg text-display-lg text-on-primary">Your saved journeys</h1>
+    <p class="text-on-primary/80 mt-3 max-w-2xl">Keep your favorite plans close at hand and continue where you left off.</p>
+  </div>
+</div>
+
+<section class="max-w-container-max mx-auto px-margin-desktop py-10">
+  {% if saved_trips %}
+  <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
+    {% for entry in saved_trips %}
+    {% with trip=entry.trip %}
+    <div class="rounded-3xl bg-surface-container-lowest p-6 shadow-[0px_4px_20px_rgba(26,54,93,0.05)]">
+      <div class="flex items-start justify-between gap-4">
+        <div>
+          <h2 class="font-headline-md text-headline-md text-primary">{{ trip.title }}</h2>
+          <p class="text-sm text-on-surface-variant mt-2">{{ trip.destination_name }}</p>
+        </div>
+        <span class="rounded-full bg-secondary/10 text-secondary px-3 py-1 text-xs font-semibold">{{ trip.get_budget_display }}</span>
+      </div>
+      <div class="mt-5 text-sm text-on-surface-variant space-y-2">
+        <p>Travelers: {{ trip.traveler_count }}</p>
+        {% if trip.start_date %}<p>Dates: {{ trip.start_date }}{% if trip.end_date %} to {{ trip.end_date }}{% endif %}</p>{% endif %}
+      </div>
+      <div class="mt-6 flex gap-3">
+        <a href="{% url 'itinerary_detail' trip.pk %}" class="bg-primary text-on-primary px-4 py-2 rounded-xl text-sm font-semibold">View itinerary</a>
+        <form method="post" action="{% url 'save_trip' trip.pk %}">{% csrf_token %}<button type="submit" class="border border-outline-variant text-primary px-4 py-2 rounded-xl text-sm font-semibold">Remove</button></form>
+      </div>
+    </div>
+    {% endwith %}
+    {% endfor %}
+  </div>
+  {% else %}
+  <div class="rounded-3xl border border-dashed border-outline-variant bg-surface-container-low p-10 text-center text-on-surface-variant">
+    <span class="material-symbols-outlined text-5xl block mb-3">bookmark</span>
+    <p>You have not saved any trips yet.</p>
+  </div>
+  {% endif %}
+</section>
+{% endblock %}

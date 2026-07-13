@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Hidden Gems | Balaji Holidays</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Inter:wght@400;600&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Montserrat:wght@100..900&display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .gem-card:hover .gem-image {
+            transform: scale(1.05);
+        }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(8px);
+        }
+        /* Custom scrollbar for a premium feel */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f4f6;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #adc7f7;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #455f88;
+        }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary-container": "#86a0cd",
+                    "outline": "#74777f",
+                    "surface": "#f7fafc",
+                    "error-container": "#ffdad6",
+                    "tertiary-container": "#4f2e00",
+                    "primary-fixed": "#d6e3ff",
+                    "surface-bright": "#f7fafc",
+                    "secondary-container": "#a2eded",
+                    "primary-container": "#1a365d",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary-fixed": "#002020",
+                    "on-background": "#181c1e",
+                    "on-secondary": "#ffffff",
+                    "surface-tint": "#455f88",
+                    "on-primary-fixed-variant": "#2d476f",
+                    "on-tertiary-container": "#d4903b",
+                    "background": "#f7fafc",
+                    "surface-container-low": "#f1f4f6",
+                    "inverse-surface": "#2d3133",
+                    "surface-container-highest": "#e0e3e5",
+                    "tertiary-fixed-dim": "#ffb866",
+                    "outline-variant": "#c4c6cf",
+                    "error": "#ba1a1a",
+                    "surface-container-high": "#e5e9eb",
+                    "tertiary": "#321b00",
+                    "secondary": "#13696a",
+                    "on-surface": "#181c1e",
+                    "on-primary": "#ffffff",
+                    "secondary-fixed-dim": "#89d3d4",
+                    "on-surface-variant": "#43474e",
+                    "on-error-container": "#93000a",
+                    "secondary-fixed": "#a5eff0",
+                    "on-error": "#ffffff",
+                    "inverse-on-surface": "#eef1f3",
+                    "on-secondary-fixed-variant": "#004f50",
+                    "tertiary-fixed": "#ffddba",
+                    "surface-container": "#ebeef0",
+                    "primary-fixed-dim": "#adc7f7",
+                    "surface-dim": "#d7dadc",
+                    "primary": "#002045",
+                    "inverse-primary": "#adc7f7",
+                    "on-primary-fixed": "#001b3c",
+                    "on-secondary-container": "#1a6d6e",
+                    "on-tertiary": "#ffffff",
+                    "on-tertiary-fixed-variant": "#673d00",
+                    "on-tertiary-fixed": "#2b1700"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-desktop": "40px",
+                    "unit": "8px",
+                    "container-max": "1280px",
+                    "margin-mobile": "16px",
+                    "gutter": "24px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Montserrat"],
+                    "display-lg": ["Montserrat"],
+                    "body-md": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "display-lg-mobile": ["Montserrat"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "label-sm": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "display-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+</head>
+<body class="bg-surface text-on-surface font-body-md selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- TopNavBar -->
+<header class="bg-surface/90 dark:bg-surface-container-highest/90 backdrop-blur-md docked full-width top-0 sticky z-50 shadow-[0px_4px_20px_rgba(26,54,93,0.05)] h-20">
+<nav class="flex justify-between items-center w-full px-margin-desktop h-20 max-w-container-max mx-auto">
+<div class="flex items-center gap-8">
+<a class="font-headline-md text-headline-md font-bold text-primary dark:text-inverse-primary tracking-tight" href="#">Balaji Holidays</a>
+<div class="hidden md:flex items-center gap-6">
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary transition-colors duration-200 active:scale-95 transition-transform" href="#">Explore</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary transition-colors duration-200 active:scale-95 transition-transform" href="#">Planner</a>
+<a class="font-body-md text-body-md text-primary dark:text-inverse-primary font-bold border-b-2 border-primary dark:border-inverse-primary pb-1 active:scale-95 transition-transform" href="#">Hidden Gems</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary transition-colors duration-200 active:scale-95 transition-transform" href="#">Saved</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="font-body-md text-body-md text-on-surface-variant px-4 py-2 hover:text-primary transition-colors">Login</button>
+<button class="bg-primary text-on-primary px-6 py-2.5 rounded-full font-label-sm text-label-sm active:scale-95 transition-all shadow-sm hover:shadow-md">Sign Up</button>
+</div>
+</nav>
+</header>
+<main class="min-h-screen">
+<!-- Hero Section -->
+<section class="relative py-24 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="flex flex-col items-center text-center max-w-3xl mx-auto space-y-6">
+<span class="text-secondary font-label-sm text-label-sm uppercase tracking-widest bg-secondary/10 px-4 py-1.5 rounded-full">Curated Experiences</span>
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-primary">Discover the Unseen - Handpicked Hidden Gems</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Venture beyond the tourist trails. From secret waterfalls to centuries-old artisanal villages, explore the places that define the soul of a destination.</p>
+</div>
+</section>
+<!-- Filter Bar (Bento-style utility) -->
+<section class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto mb-12">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-4 bg-surface-container-low p-4 rounded-3xl border border-outline-variant/30">
+<div class="flex items-center gap-3 px-4 py-3 bg-white rounded-2xl shadow-sm">
+<span class="material-symbols-outlined text-primary">location_on</span>
+<span class="text-on-surface font-label-sm">Near Tokyo, Japan</span>
+</div>
+<div class="flex items-center gap-3 px-4 py-3 bg-white rounded-2xl shadow-sm">
+<span class="material-symbols-outlined text-primary">category</span>
+<span class="text-on-surface font-label-sm">Nature & Adventure</span>
+</div>
+<div class="flex items-center gap-3 px-4 py-3 bg-white rounded-2xl shadow-sm">
+<span class="material-symbols-outlined text-primary">calendar_today</span>
+<span class="text-on-surface font-label-sm">Best in Autumn</span>
+</div>
+<button class="bg-primary text-on-primary rounded-2xl font-label-sm hover:bg-primary/90 transition-colors">
+                    Filter Results
+                </button>
+</div>
+</section>
+<!-- Hidden Gems Grid -->
+<section class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto pb-24">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Card 1 -->
+<div class="gem-card group flex flex-col bg-white rounded-[32px] overflow-hidden shadow-[0px_4px_20px_rgba(26,54,93,0.05)] transition-all duration-300 hover:shadow-[0px_10px_30px_rgba(26,54,93,0.12)]">
+<div class="relative aspect-[4/5] overflow-hidden">
+<img class="gem-image w-full h-full object-cover transition-transform duration-700" data-alt="A serene hidden turquoise lagoon surrounded by lush green cliffs and exotic tropical foliage in Thailand. The lighting is soft morning sunlight filtering through the canopy, creating a peaceful and exclusive atmosphere. The overall style is premium editorial travel photography with rich, deep greens and crystal clear water textures." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOcvH2Py763Axet2lObG_7rpykNmyJUUtXhkw6udmQ8zp8Rv-0xa0stbg2qbuOY23KqUyJojxyuBq3KThhRragmHv2CUMALSqIkLtj86KDSYwp2hBA80vOi9wAXTinXUviCPj-h7CArPA288Dq3EIKcVj-dWY8Qj6FRpr3OeEqn-lIDT5meT5htgpmVQXMwUpjoYaeJuQG0Du6uMN2OVIH33FQQKoJZVcNW7PXO0EOVjZyoMP8StQWfh_7boZhALoZ2UL9FnfL_cDo"/>
+<div class="absolute top-6 left-6 flex gap-2">
+<span class="glass-effect text-primary font-label-sm px-3 py-1.5 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span> 4.9
+                            </span>
+</div>
+<button class="absolute top-6 right-6 w-10 h-10 rounded-full glass-effect flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+</div>
+<div class="p-8 flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-md text-headline-md text-primary">Emerald Grotto</h3>
+<span class="text-outline font-label-sm">12km away</span>
+</div>
+<p class="text-on-surface-variant font-body-md mb-8 flex-grow">A subterranean sanctuary where the water glows with an otherworldly luminescence, accessible only by a narrow coastal cave entrance.</p>
+<div class="flex gap-3">
+<button class="flex-1 bg-primary text-on-primary py-3 rounded-2xl font-label-sm hover:bg-primary/90 transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[20px]">add_task</span> Save to Trip
+                            </button>
+<button class="w-14 bg-surface-container-high text-primary rounded-2xl flex items-center justify-center hover:bg-primary hover:text-white transition-all">
+<span class="material-symbols-outlined">map</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="gem-card group flex flex-col bg-white rounded-[32px] overflow-hidden shadow-[0px_4px_20px_rgba(26,54,93,0.05)] transition-all duration-300 hover:shadow-[0px_10px_30px_rgba(26,54,93,0.12)]">
+<div class="relative aspect-[4/5] overflow-hidden">
+<img class="gem-image w-full h-full object-cover transition-transform duration-700" data-alt="A charming medieval cobblestone alleyway in a hidden European village, decorated with blooming pink flowers and vintage wrought iron street lamps. The scene is bathed in the warm, golden glow of sunset, emphasizing the ancient stone textures and cozy architectural details. The aesthetic is modern editorial, clean and spacious with a focus on heritage." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJTIoKGbgEL7x8pDyO4xYbqf93-z3LazFFXcAFrLEHrJ-FvCsD6Oo6mHW7-0znlbRnJWWwO4eoo87F3Uoi5OzyzrSl6Scu-lkgdhJEEOMQq5v-zZ52KGI_KyFBWQuUcuofRxlxk0686eatXirRtzIQHWzIgIoe-_lC691LdpS0o0b_V0qmYipk6ZkvbDc9dTaWZMA6AFDAil6lqvRrVmfLyBFf05NcXwH1oulefZw7JO7C3K5jfVApjEoKv6EvVEVrTjbBKbOE4JnR"/>
+<div class="absolute top-6 left-6 flex gap-2">
+<span class="glass-effect text-primary font-label-sm px-3 py-1.5 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span> 4.7
+                            </span>
+</div>
+<button class="absolute top-6 right-6 w-10 h-10 rounded-full glass-effect flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+</div>
+<div class="p-8 flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-md text-headline-md text-primary">Via dei Fiori</h3>
+<span class="text-outline font-label-sm">2.5km away</span>
+</div>
+<p class="text-on-surface-variant font-body-md mb-8 flex-grow">A narrow, flower-draped alleyway forgotten by maps, housing three generations of master leather craftsmen and secret bakeries.</p>
+<div class="flex gap-3">
+<button class="flex-1 bg-primary text-on-primary py-3 rounded-2xl font-label-sm hover:bg-primary/90 transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[20px]">add_task</span> Save to Trip
+                            </button>
+<button class="w-14 bg-surface-container-high text-primary rounded-2xl flex items-center justify-center hover:bg-primary hover:text-white transition-all">
+<span class="material-symbols-outlined">map</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="gem-card group flex flex-col bg-white rounded-[32px] overflow-hidden shadow-[0px_4px_20px_rgba(26,54,93,0.05)] transition-all duration-300 hover:shadow-[0px_10px_30px_rgba(26,54,93,0.12)]">
+<div class="relative aspect-[4/5] overflow-hidden">
+<img class="gem-image w-full h-full object-cover transition-transform duration-700" data-alt="A minimalist architectural marvel of a cliffside tea house overlooking a vast, misty mountain range in East Asia. The building features clean lines, natural wood elements, and large glass windows. The atmosphere is serene and meditative, with cool blue and grey tones contrasted by warm wood. High-end modern design photography style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJAr9w2p_INak6Wsj4_Kk2CU_9OkHU8ZDLEuu3creYhLOW3yMbk9rViGjmWb2IOPaiSjcXNn8Sw0e_TqwlMJ4_1PdXGw6hn1VzRrmCxvdoaJTm1U5xSBBiUjRoumm4SK-5JqDw3VmHfiqcEqghn1zAt6TU4Wl6YR99YYLV4CfFaLqKocfRXPiSXdfQthnAWZQER0Lqg9f887ZoqZYSTGaHFIVmmoTnt_rynHq4dWHPU9fABuRxiBc9-nWNtP-2Rg1j2Pk43WyFAJZS"/>
+<div class="absolute top-6 left-6 flex gap-2">
+<span class="glass-effect text-primary font-label-sm px-3 py-1.5 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span> 5.0
+                            </span>
+</div>
+<button class="absolute top-6 right-6 w-10 h-10 rounded-full glass-effect flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+</div>
+<div class="p-8 flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-md text-headline-md text-primary">The Cloud Pavilion</h3>
+<span class="text-outline font-label-sm">45km away</span>
+</div>
+<p class="text-on-surface-variant font-body-md mb-8 flex-grow">Sip hand-picked oolong tea while suspended 800 meters above the valley floor in this architectural masterpiece of glass and cedar.</p>
+<div class="flex gap-3">
+<button class="flex-1 bg-primary text-on-primary py-3 rounded-2xl font-label-sm hover:bg-primary/90 transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[20px]">add_task</span> Save to Trip
+                            </button>
+<button class="w-14 bg-surface-container-high text-primary rounded-2xl flex items-center justify-center hover:bg-primary hover:text-white transition-all">
+<span class="material-symbols-outlined">map</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="gem-card group flex flex-col bg-white rounded-[32px] overflow-hidden shadow-[0px_4px_20px_rgba(26,54,93,0.05)] transition-all duration-300 hover:shadow-[0px_10px_30px_rgba(26,54,93,0.12)]">
+<div class="relative aspect-[4/5] overflow-hidden">
+<img class="gem-image w-full h-full object-cover transition-transform duration-700" data-alt="A hidden desert oasis featuring a natural spring pool reflecting tall palm trees under a vast starry night sky. The lighting comes from a small, warm campfire nearby, casting a soft orange glow. The desert dunes are painted in deep blue and indigo. A high-contrast, premium photograph emphasizing solitude and the beauty of nature." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVU_WwViWJFA4kUlSYG4T5zB87eQEXqVJDaapnuiDBA0WWJI7RWNxb7k89XcIgmWPHzke3V3-RZbDOWp5uf5YuXEaU3ztlXmFw4V2kUi4YZC5D2DUwV1q00QPsT9pZ3fiiW74dkva8E7fKSy3Z5bD63scm-mjRMI-3woF5BWR4blPJ8QjxoVjm8iIJLD51UxxEBX0g5QfXT0gy9FC3O3heI2epL-L0H4YcU_dqPd-OHssWoogblCBgH8y3nFDyHiEuuxqUKcuXF1EL"/>
+<div class="absolute top-6 left-6 flex gap-2">
+<span class="glass-effect text-primary font-label-sm px-3 py-1.5 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span> 4.8
+                            </span>
+</div>
+<button class="absolute top-6 right-6 w-10 h-10 rounded-full glass-effect flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+</div>
+<div class="p-8 flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-md text-headline-md text-primary">Starlight Well</h3>
+<span class="text-outline font-label-sm">82km away</span>
+</div>
+<p class="text-on-surface-variant font-body-md mb-8 flex-grow">An ancient water source deep in the dunes, perfect for nocturnal stargazing and private dinners away from city light pollution.</p>
+<div class="flex gap-3">
+<button class="flex-1 bg-primary text-on-primary py-3 rounded-2xl font-label-sm hover:bg-primary/90 transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[20px]">add_task</span> Save to Trip
+                            </button>
+<button class="w-14 bg-surface-container-high text-primary rounded-2xl flex items-center justify-center hover:bg-primary hover:text-white transition-all">
+<span class="material-symbols-outlined">map</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 5 -->
+<div class="gem-card group flex flex-col bg-white rounded-[32px] overflow-hidden shadow-[0px_4px_20px_rgba(26,54,93,0.05)] transition-all duration-300 hover:shadow-[0px_10px_30px_rgba(26,54,93,0.12)]">
+<div class="relative aspect-[4/5] overflow-hidden">
+<img class="gem-image w-full h-full object-cover transition-transform duration-700" data-alt="An artisanal pottery workshop in a rustic Mediterranean coastal house, filled with natural light and handcrafted ceramics. The background shows the blue sea through an open archway. The scene is full of earthy tones, textures of clay and linen, and soft cinematic lighting. High-end lifestyle travel photography style with a calm, tactile feeling." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4v-0sKbqQIh9OS4Zl6xewRLc2jHJQK6wd07P3BFE7Lpqu6MLzigESGISN-KcT352TxXwkJJBnNa5zRTkJRy39IyQ7c0rXW_37utL6UoJxUOkm_uaghHMvXc_JMkAcGTAFx1SGiuoH8LNknam2ixcM2jCefCKUBC1IkbKkMRUNl6GhXJkVKBKeXg3H_XZ4Y0K5WMJgmhm8EaY4sIOLKMMkvKHt5tZyTAhF8xWn0iNouuabcVcUCbpY1v9U9CORiB8I2IWAlwXY0WUC"/>
+<div class="absolute top-6 left-6 flex gap-2">
+<span class="glass-effect text-primary font-label-sm px-3 py-1.5 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span> 4.9
+                            </span>
+</div>
+<button class="absolute top-6 right-6 w-10 h-10 rounded-full glass-effect flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+</div>
+<div class="p-8 flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-md text-headline-md text-primary">The Kiln House</h3>
+<span class="text-outline font-label-sm">5km away</span>
+</div>
+<p class="text-on-surface-variant font-body-md mb-8 flex-grow">A coastal workshop where the sea breeze mixes with the smell of clay. Learn centuries-old pottery techniques from local legend, Maestro Marco.</p>
+<div class="flex gap-3">
+<button class="flex-1 bg-primary text-on-primary py-3 rounded-2xl font-label-sm hover:bg-primary/90 transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[20px]">add_task</span> Save to Trip
+                            </button>
+<button class="w-14 bg-surface-container-high text-primary rounded-2xl flex items-center justify-center hover:bg-primary hover:text-white transition-all">
+<span class="material-symbols-outlined">map</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 6 -->
+<div class="gem-card group flex flex-col bg-white rounded-[32px] overflow-hidden shadow-[0px_4px_20px_rgba(26,54,93,0.05)] transition-all duration-300 hover:shadow-[0px_10px_30px_rgba(26,54,93,0.12)]">
+<div class="relative aspect-[4/5] overflow-hidden">
+<img class="gem-image w-full h-full object-cover transition-transform duration-700" data-alt="A futuristic botanical conservatory filled with rare neon-glowing plants and bioluminescent fungi in a sleek glass dome at dusk. The structural ribs of the dome are metallic and elegant. The lighting is dominated by purples, cyans, and deep blues, creating a magical, tech-infused nature aesthetic. Premium architectural and botanical photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAKxuBSmZKhJrmN32Nor5MuNMutmHzJvu1OuAmrnj_MD9D8Wh7XW2oAz7M0XIfYDuZv4S8f7nFu6j1mmnV9147V4Idms16U92Ud55m92P1Zq-Z0ukNRcItOMjn6lMrstSVYP3M4hvV-bZk87dZfyt8GN8AKrafBp0Q4hTeyjIxk8ug2-h-BmPiRpleO2kjOfrREsNWCW2A-dwgCclDrrO39umcL23KXYx9dyuKQ9EvGjvnlJ1CuN3oyFofebPLpBTeBDY69ycDgk7Ft"/>
+<div class="absolute top-6 left-6 flex gap-2">
+<span class="glass-effect text-primary font-label-sm px-3 py-1.5 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span> 4.6
+                            </span>
+</div>
+<button class="absolute top-6 right-6 w-10 h-10 rounded-full glass-effect flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+</div>
+<div class="p-8 flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-md text-headline-md text-primary">Neon Conservatory</h3>
+<span class="text-outline font-label-sm">8km away</span>
+</div>
+<p class="text-on-surface-variant font-body-md mb-8 flex-grow">A futuristic dome housing rare nocturnal bioluminescent flora. A dazzling light show that reveals nature's digital-like patterns.</p>
+<div class="flex gap-3">
+<button class="flex-1 bg-primary text-on-primary py-3 rounded-2xl font-label-sm hover:bg-primary/90 transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[20px]">add_task</span> Save to Trip
+                            </button>
+<button class="w-14 bg-surface-container-high text-primary rounded-2xl flex items-center justify-center hover:bg-primary hover:text-white transition-all">
+<span class="material-symbols-outlined">map</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Call to Action Banner -->
+<section class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto mb-24">
+<div class="relative bg-primary-container rounded-[40px] p-12 md:p-20 overflow-hidden text-center">
+<!-- Background decoration -->
+<div class="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
+<svg height="100%" preserveaspectratio="none" viewbox="0 0 100 100" width="100%">
+<path d="M0 100 C 20 0 50 0 100 100 Z" fill="white"></path>
+</svg>
+</div>
+<div class="relative z-10 flex flex-col items-center max-w-2xl mx-auto space-y-6">
+<h2 class="font-display-lg text-display-lg-mobile md:text-display-lg text-white">Know a Secret Place?</h2>
+<p class="font-body-lg text-body-lg text-on-primary-container">Contribute to our community of explorers. Share your handpicked gems and help others discover the extraordinary.</p>
+<button class="bg-secondary-fixed text-on-secondary-fixed px-10 py-4 rounded-full font-label-sm text-label-sm hover:scale-105 transition-all">Submit a Gem</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-primary dark:bg-surface-container-lowest w-full mt-16">
+<div class="flex flex-col md:flex-row justify-between items-center py-12 px-margin-desktop w-full max-w-container-max mx-auto">
+<div class="mb-8 md:mb-0">
+<span class="font-headline-md text-headline-md font-bold text-on-primary dark:text-primary">Balaji Holidays</span>
+<p class="font-body-md text-body-md text-on-primary/80 dark:text-primary/70 mt-2">© 2024 Balaji Holidays. All rights reserved.</p>
+</div>
+<div class="grid grid-cols-2 md:flex gap-8 md:gap-12">
+<div class="flex flex-col gap-3">
+<a class="font-body-md text-body-md text-on-primary/80 dark:text-primary/70 hover:text-secondary-fixed dark:hover:text-secondary transition-colors" href="#">About Us</a>
+<a class="font-body-md text-body-md text-on-primary/80 dark:text-primary/70 hover:text-secondary-fixed dark:hover:text-secondary transition-colors" href="#">Terms of Service</a>
+</div>
+<div class="flex flex-col gap-3">
+<a class="font-body-md text-body-md text-on-primary/80 dark:text-primary/70 hover:text-secondary-fixed dark:hover:text-secondary transition-colors" href="#">Privacy Policy</a>
+<a class="font-body-md text-body-md text-on-primary/80 dark:text-primary/70 hover:text-secondary-fixed dark:hover:text-secondary transition-colors" href="#">Contact Support</a>
+</div>
+<div class="flex flex-col gap-3">
+<a class="font-body-md text-body-md text-on-primary/80 dark:text-primary/70 hover:text-secondary-fixed dark:hover:text-secondary transition-colors" href="#">FAQ</a>
+<a class="font-body-md text-body-md text-on-primary/80 dark:text-primary/70 hover:text-secondary-fixed dark:hover:text-secondary transition-colors" href="#">Travel Guides</a>
+</div>
+</div>
+</div>
+</footer>
+<script>
+        // Micro-interactions: Simple click handling for Save buttons
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                if (this.innerText.includes('Save')) {
+                    const icon = this.querySelector('.material-symbols-outlined');
+                    if (icon) {
+                        icon.innerText = icon.innerText === 'add_task' ? 'task_alt' : 'add_task';
+                        this.classList.toggle('bg-secondary');
+                        this.classList.toggle('bg-primary');
+                    }
+                }
+            });
+        });
+
+        // Simple scroll reveal effect
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.gem-card').forEach(card => {
+            card.classList.add('opacity-0', 'translate-y-10', 'transition-all', 'duration-700');
+            observer.observe(card);
+        });
+    </script>
+</body></html>

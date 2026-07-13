@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+{% block title %}{{ destination.name }} | Balaji Holidays{% endblock %}
+
+{% block content %}
+<section class="relative overflow-hidden">
+  <div class="absolute inset-0 bg-primary"></div>
+  <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(255,255,255,0.14),_transparent_45%)]"></div>
+  <div class="relative max-w-container-max mx-auto px-margin-desktop py-20 lg:py-28">
+    <div class="grid lg:grid-cols-[1.2fr_0.8fr] gap-8 items-end">
+      <div>
+        <p class="text-saffron font-semibold uppercase tracking-[0.25em] text-sm">Destination Spotlight</p>
+        <h1 class="font-display-lg text-display-lg text-on-primary mt-3">{{ destination.name }}</h1>
+        <p class="text-on-primary/80 text-body-lg max-w-2xl mt-4">{{ destination.description }}</p>
+      </div>
+      <div class="bg-surface-container-lowest/95 backdrop-blur rounded-3xl p-6 shadow-2xl">
+        <div class="flex items-center justify-between mb-4">
+          <span class="text-primary font-semibold">From ${{ destination.price_per_person }}</span>
+          <div class="flex items-center gap-1 text-saffron font-semibold">
+            <span class="material-symbols-outlined text-[16px]" style="font-variation-settings:'FILL' 1;">star</span>
+            {{ destination.rating }}
+          </div>
+        </div>
+        <div class="flex flex-wrap gap-2">
+          {% for category in destination.get_categories %}
+          <span class="px-3 py-1 rounded-full bg-surface-container text-on-surface-variant text-sm">{{ category }}</span>
+          {% endfor %}
+        </div>
+        <div class="mt-5 flex flex-wrap gap-3">
+          <a href="{% url 'trip_planner' %}" class="bg-primary text-on-primary px-5 py-3 rounded-xl font-semibold">Plan a Trip</a>
+          <a href="{% url 'hidden_gems' %}" class="border border-outline-variant text-primary px-5 py-3 rounded-xl font-semibold">Explore Hidden Gems</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="max-w-container-max mx-auto px-margin-desktop py-16">
+  <div class="grid lg:grid-cols-[1.1fr_0.9fr] gap-8">
+    <div>
+      <h2 class="font-headline-md text-headline-md text-primary mb-4">Why travelers love it</h2>
+      <p class="text-on-surface-variant leading-relaxed">{{ destination.short_description|default:destination.description }}</p>
+      <div class="mt-8 grid sm:grid-cols-3 gap-4">
+        <div class="rounded-2xl bg-surface-container-low p-4">
+          <p class="text-sm text-on-surface-variant">Best season</p>
+          <p class="font-bold text-primary mt-1">{{ destination.best_season }}</p>
+        </div>
+        <div class="rounded-2xl bg-surface-container-low p-4">
+          <p class="text-sm text-on-surface-variant">Language</p>
+          <p class="font-bold text-primary mt-1">{{ destination.language|default:'Local' }}</p>
+        </div>
+        <div class="rounded-2xl bg-surface-container-low p-4">
+          <p class="text-sm text-on-surface-variant">Currency</p>
+          <p class="font-bold text-primary mt-1">{{ destination.currency|default:'Local currency' }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="rounded-3xl overflow-hidden bg-surface-container-lowest shadow-[0px_4px_20px_rgba(26,54,93,0.05)]">
+      {% if destination.image_url %}
+      <img src="{{ destination.image_url }}" alt="{{ destination.name }}" class="w-full h-80 object-cover" />
+      {% else %}
+      <div class="h-80 bg-surface-container-high flex items-center justify-center"><span class="material-symbols-outlined text-6xl text-outline">landscape</span></div>
+      {% endif %}
+    </div>
+  </div>
+
+  {% if hidden_gems %}
+  <div class="mt-16">
+    <div class="flex items-end justify-between mb-6">
+      <div>
+        <h2 class="font-headline-md text-headline-md text-primary">Hidden gems nearby</h2>
+        <p class="text-on-surface-variant text-sm">Local favorites that go beyond the obvious.</p>
+      </div>
+    </div>
+    <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
+      {% for gem in hidden_gems %}
+      <div class="rounded-3xl overflow-hidden bg-surface-container-lowest shadow-[0px_4px_20px_rgba(26,54,93,0.05)]">
+        <div class="h-40 bg-surface-container-high flex items-center justify-center">
+          <span class="material-symbols-outlined text-5xl text-secondary">diamond</span>
+        </div>
+        <div class="p-5">
+          <div class="flex items-center justify-between">
+            <h3 class="font-bold text-primary">{{ gem.name }}</h3>
+            <span class="text-saffron text-sm font-semibold">★ {{ gem.rating }}</span>
+          </div>
+          <p class="text-sm text-on-surface-variant mt-2">{{ gem.why_special|default:gem.description }}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+</section>
+{% endblock %}

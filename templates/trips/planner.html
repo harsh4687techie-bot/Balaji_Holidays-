@@ -1,0 +1,116 @@
+{% extends 'base.html' %}
+{% block title %}Trip Planner | Balaji Holidays{% endblock %}
+
+{% block content %}
+<div class="bg-primary py-12">
+  <div class="max-w-container-max mx-auto px-margin-desktop">
+    <p class="text-saffron font-semibold uppercase tracking-[0.25em] text-sm">Trip Planner</p>
+    <h1 class="font-display-lg text-display-lg text-on-primary mt-2">Plan your next journey in three easy steps</h1>
+    <p class="text-on-primary/80 mt-3 max-w-2xl">Tell us where you want to go, how you want to travel, and we’ll shape a memorable itinerary for you.</p>
+  </div>
+</div>
+
+<section class="max-w-container-max mx-auto px-margin-desktop py-12">
+  <div class="grid lg:grid-cols-[0.9fr_1.1fr] gap-8">
+    <div class="rounded-3xl bg-surface-container-low p-8 shadow-[0px_4px_20px_rgba(26,54,93,0.05)]">
+      <h2 class="font-headline-md text-headline-md text-primary">Your plan at a glance</h2>
+      <div class="mt-6 space-y-4 text-sm text-on-surface-variant">
+        <div class="rounded-2xl bg-surface-container-lowest p-4">
+          <p class="font-semibold text-primary">Destination</p>
+          <p class="mt-1">{{ summary_destination|default:'Choose a destination' }}</p>
+        </div>
+        <div class="rounded-2xl bg-surface-container-lowest p-4">
+          <p class="font-semibold text-primary">Travelers</p>
+          <p class="mt-1">{{ summary_travelers }}</p>
+        </div>
+        <div class="rounded-2xl bg-surface-container-lowest p-4">
+          <p class="font-semibold text-primary">Budget</p>
+          <p class="mt-1">{{ summary_budget }}</p>
+        </div>
+        <div class="rounded-2xl bg-surface-container-lowest p-4">
+          <p class="font-semibold text-primary">Travel window</p>
+          <p class="mt-1">{{ summary_start|default:'Flexible' }}{% if summary_end %} to {{ summary_end }}{% endif %}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="rounded-3xl bg-surface-container-lowest p-8 shadow-[0px_4px_20px_rgba(26,54,93,0.05)]">
+      {% if step == 1 %}
+      <form method="post" class="space-y-5">
+        {% csrf_token %}
+        <input type="hidden" name="current_step" value="1" />
+        <div>
+          <label class="block text-sm font-semibold text-primary mb-2">Where are you headed?</label>
+          {{ step1_form.destination }}
+        </div>
+        <div class="grid md:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-sm font-semibold text-primary mb-2">Start date</label>
+            {{ step1_form.start_date }}
+          </div>
+          <div>
+            <label class="block text-sm font-semibold text-primary mb-2">End date</label>
+            {{ step1_form.end_date }}
+          </div>
+        </div>
+        <div>
+          <label class="block text-sm font-semibold text-primary mb-2">How many travelers?</label>
+          {{ step1_form.traveler_count }}
+          <input type="number" name="traveler_count" min="1" max="50" value="{{ step1_form.traveler_count.value|default:2 }}" class="w-full rounded-xl border border-outline-variant px-4 py-3 focus:ring-2 focus:ring-secondary focus:border-secondary" />
+        </div>
+        <div class="flex justify-end">
+          <button type="submit" class="bg-primary text-on-primary px-6 py-3 rounded-xl font-semibold">Continue</button>
+        </div>
+      </form>
+      {% elif step == 2 %}
+      <form method="post" class="space-y-6">
+        {% csrf_token %}
+        <input type="hidden" name="current_step" value="2" />
+        <div>
+          <label class="block text-sm font-semibold text-primary mb-3">Budget</label>
+          <div class="space-y-2">
+            {% for choice in step2_form.budget %}
+            <label class="flex items-center gap-3 rounded-2xl border border-outline-variant p-3">
+              {{ choice.tag }}
+              <span class="text-sm text-on-surface-variant">{{ choice.choice_label }}</span>
+            </label>
+            {% endfor %}
+          </div>
+        </div>
+        <div>
+          <label class="block text-sm font-semibold text-primary mb-3">Travel styles</label>
+          <div class="grid sm:grid-cols-2 gap-3">
+            {% for choice in step2_form.travel_styles %}
+            <label class="flex items-center gap-3 rounded-2xl border border-outline-variant p-3">
+              {{ choice.tag }}
+              <span class="text-sm text-on-surface-variant">{{ choice.choice_label }}</span>
+            </label>
+            {% endfor %}
+          </div>
+        </div>
+        <div class="flex justify-between">
+          <a href="?step=1" class="text-primary font-semibold">Back</a>
+          <button type="submit" class="bg-primary text-on-primary px-6 py-3 rounded-xl font-semibold">Continue</button>
+        </div>
+      </form>
+      {% else %}
+      <div class="space-y-6">
+        <h2 class="font-headline-md text-headline-md text-primary">Almost there</h2>
+        <p class="text-on-surface-variant">Your itinerary is ready to be generated. Sign in to save it and revisit it later.</p>
+        <form method="post" class="space-y-4">
+          {% csrf_token %}
+          <input type="hidden" name="current_step" value="3" />
+          <div class="flex items-center justify-between gap-4 rounded-2xl bg-surface-container p-4">
+            <div>
+              <p class="font-semibold text-primary">Create itinerary</p>
+              <p class="text-sm text-on-surface-variant">This will save a personalized travel plan to your account.</p>
+            </div>
+            <button type="submit" class="bg-saffron text-primary px-5 py-3 rounded-xl font-semibold">Generate</button>
+          </div>
+        </form>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</section>
+{% endblock %}

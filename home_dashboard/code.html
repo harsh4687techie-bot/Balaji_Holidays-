@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Balaji Holidays | Your Travel Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&amp;family=Inter:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary-container": "#86a0cd",
+                    "outline": "#74777f",
+                    "surface": "#f7fafc",
+                    "error-container": "#ffdad6",
+                    "tertiary-container": "#4f2e00",
+                    "primary-fixed": "#d6e3ff",
+                    "surface-bright": "#f7fafc",
+                    "secondary-container": "#a2eded",
+                    "primary-container": "#1a365d",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary-fixed": "#002020",
+                    "on-background": "#181c1e",
+                    "on-secondary": "#ffffff",
+                    "surface-tint": "#455f88",
+                    "on-primary-fixed-variant": "#2d476f",
+                    "on-tertiary-container": "#d4903b",
+                    "background": "#f7fafc",
+                    "surface-container-low": "#f1f4f6",
+                    "inverse-surface": "#2d3133",
+                    "surface-container-highest": "#e0e3e5",
+                    "tertiary-fixed-dim": "#ffb866",
+                    "outline-variant": "#c4c6cf",
+                    "error": "#ba1a1a",
+                    "surface-container-high": "#e5e9eb",
+                    "tertiary": "#321b00",
+                    "secondary": "#13696a",
+                    "on-surface": "#181c1e",
+                    "on-primary": "#ffffff",
+                    "secondary-fixed-dim": "#89d3d4",
+                    "on-surface-variant": "#43474e",
+                    "on-error-container": "#93000a",
+                    "secondary-fixed": "#a5eff0",
+                    "on-error": "#ffffff",
+                    "inverse-on-surface": "#eef1f3",
+                    "on-secondary-fixed-variant": "#004f50",
+                    "tertiary-fixed": "#ffddba",
+                    "surface-container": "#ebeef0",
+                    "primary-fixed-dim": "#adc7f7",
+                    "surface-dim": "#d7dadc"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-desktop": "40px",
+                    "unit": "8px",
+                    "container-max": "1280px",
+                    "margin-mobile": "16px",
+                    "gutter": "24px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Montserrat"],
+                    "display-lg": ["Montserrat"],
+                    "body-md": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "display-lg-mobile": ["Montserrat"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "label-sm": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "display-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+        }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 24px;
+        }
+        .shadow-soft {
+            shadow-[0px_4px_20px_rgba(26,54,93,0.05)];
+        }
+        .shadow-hover {
+            transition: all 0.3s ease;
+        }
+        .shadow-hover:hover {
+            box-shadow: 0px 10px 30px rgba(26, 54, 93, 0.12);
+            transform: translateY(-4px);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body-md text-on-surface">
+<!-- TopNavBar -->
+<nav class="bg-surface/90 dark:bg-surface-container-highest/90 backdrop-blur-md shadow-sm dark:shadow-none docked full-width top-0 sticky z-50">
+<div class="flex justify-between items-center w-full px-margin-desktop h-20 max-w-container-max mx-auto">
+<div class="flex items-center gap-8">
+<span class="font-headline-md text-headline-md font-bold text-primary dark:text-inverse-primary">Balaji Holidays</span>
+<div class="hidden md:flex gap-6 items-center">
+<a class="font-body-md text-body-md text-primary dark:text-inverse-primary font-bold border-b-2 border-primary dark:border-inverse-primary pb-1 active:scale-95 transition-all" href="#">Explore</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary transition-colors duration-200 active:scale-95" href="#">Planner</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary transition-colors duration-200 active:scale-95" href="#">Hidden Gems</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary transition-colors duration-200 active:scale-95" href="#">Saved</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors px-4 py-2">Login</button>
+<button class="bg-primary text-on-primary font-body-md text-body-md px-6 py-2 rounded-full hover:shadow-lg transition-all active:scale-95">Sign Up</button>
+</div>
+</div>
+</nav>
+<main class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-8">
+<!-- Hero Section with Search -->
+<section class="relative rounded-[2rem] overflow-hidden mb-16 h-[500px] flex items-center justify-center">
+<div class="absolute inset-0 z-0">
+<div class="w-full h-full bg-cover bg-center" data-alt="A breathtaking panoramic view of the majestic Himalayas at sunrise, with soft golden light hitting the snow-capped peaks. The scene is framed by lush green valleys and misty forests, evoking a sense of calm and adventure. The visual style is premium editorial photography with a soft, warm color palette that aligns with a high-end travel discovery platform." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDNS5FXRiSBroDBPGBlmob_0vwvItMRFckqkRQy1pjNrLs_kvwIf133eWZ-2lVo6Ss8UDuOLOjYy_8lLSu6NHOrPxWfvBONDe3uE_JUQCr9qtEmkaIzvaAswyVkxbAqOJLwobwWhqIEsiEMBKwFX0eKiQLTVpo8kZ7Gtix3oY2k-vpccA9PEyGZB1GhZNp7pUUHXEQlLEE-KT0IWVNY0Nd4nsMyUdIFJepNAPym6cIf3BBB39nb01tuTEtTK-6ahtBjrssU64lYPx3B')"></div>
+<div class="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/40"></div>
+</div>
+<div class="relative z-10 w-full max-w-4xl px-6 text-center">
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-white mb-8 drop-shadow-md">
+                    Hello, Adventure Seeker! Where to next?
+                </h1>
+<div class="relative max-w-2xl mx-auto">
+<div class="glass-effect rounded-full shadow-2xl p-2 flex items-center border border-white/30">
+<span class="material-symbols-outlined ml-4 text-primary opacity-60">search</span>
+<input class="bg-transparent border-none focus:ring-0 w-full px-4 text-primary font-body-md placeholder-primary/50" placeholder="Search destinations, experiences, itineraries..." type="text"/>
+<button class="bg-[#FF9F1C] text-on-primary px-8 py-3 rounded-full font-bold hover:brightness-110 transition-all active:scale-95">
+                            Search
+                        </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Quick Action Bento -->
+<section class="mb-16">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- New Plan -->
+<div class="bg-white rounded-2xl p-8 flex flex-col justify-between border border-outline-variant shadow-soft shadow-hover cursor-pointer group">
+<div>
+<div class="w-12 h-12 bg-primary-fixed rounded-xl flex items-center justify-center mb-6 text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">add_circle</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-2">New Plan</h3>
+<p class="text-on-surface-variant font-body-md">Start building your next customized holiday from scratch.</p>
+</div>
+<div class="mt-8 flex items-center text-primary font-bold">
+<span>Get Started</span>
+<span class="material-symbols-outlined ml-2 text-sm">arrow_forward</span>
+</div>
+</div>
+<!-- Discover Gems -->
+<div class="bg-secondary-container/30 rounded-2xl p-8 flex flex-col justify-between border border-secondary/20 shadow-soft shadow-hover cursor-pointer group">
+<div>
+<div class="w-12 h-12 bg-secondary rounded-xl flex items-center justify-center mb-6 text-white group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">explore</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-2">Discover Gems</h3>
+<p class="text-on-surface-variant font-body-md">Explore untouched destinations curated by our travel experts.</p>
+</div>
+<div class="mt-8 flex items-center text-secondary font-bold">
+<span>Explore Map</span>
+<span class="material-symbols-outlined ml-2 text-sm">arrow_forward</span>
+</div>
+</div>
+<!-- Saved Items -->
+<div class="bg-tertiary-fixed rounded-2xl p-8 flex flex-col justify-between border border-tertiary/10 shadow-soft shadow-hover cursor-pointer group">
+<div>
+<div class="w-12 h-12 bg-tertiary-container rounded-xl flex items-center justify-center mb-6 text-tertiary-fixed group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">bookmark</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-2">Saved Items</h3>
+<p class="text-on-surface-variant font-body-md">Resume your browsing or check your bucket list items.</p>
+</div>
+<div class="mt-8 flex items-center text-tertiary-fixed-dim font-bold">
+<span class="text-on-tertiary-container">View Saved (12)</span>
+<span class="material-symbols-outlined ml-2 text-sm text-on-tertiary-container">arrow_forward</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Your Recent Trips -->
+<section class="mb-16">
+<div class="flex justify-between items-end mb-8">
+<div>
+<h2 class="font-headline-md text-headline-md text-primary mb-2">Your Recent Trips</h2>
+<p class="text-on-surface-variant font-body-md">Pick up where you left off with your itineraries.</p>
+</div>
+<a class="text-secondary font-bold border-b-2 border-secondary/30 hover:border-secondary transition-all pb-1" href="#">View All Trips</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Trip Card 1 -->
+<div class="flex bg-white rounded-3xl overflow-hidden shadow-soft shadow-hover border border-outline-variant group">
+<div class="w-1/3 relative h-48 md:h-auto overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A vertical composition showing a serene lakeside cabin in a pine forest during autumn. The trees are vibrant orange and gold, reflecting perfectly in the still blue water. The morning mist clings to the surface of the lake, creating an ethereal and peaceful atmosphere in a professional photography style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLlyYN-StbNmPMOci83WHxlZTQD5sYyF0zfe2eswirBjhS3CMwfZHyDi4JjQSj39nl9YbL8Mwan8UFXOBgLY7BJLPPqWAUs42gMun2vIW1duLHy6cYx2uI3sZq3SMqWgOe18Pj_uF_AvIgEf0rtkQW4Hpqo-fm9_YaWs_vaGLmKcJQfkMox5oENrXcf6jfd9g_LIuxNFkyXSeWI_LVcHaCsu-T3Di8W1RZyC2uWUDIn2gJ-nR0F6dH1R_lInkArrlHxPcOMe5Ll94Z"/>
+<div class="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="text-label-sm font-label-sm text-primary uppercase">Planned</span>
+</div>
+</div>
+<div class="w-2/3 p-6 flex flex-col justify-between">
+<div>
+<h4 class="text-on-surface-variant text-label-sm font-label-sm mb-1 uppercase tracking-widest">7 Days · Family Trip</h4>
+<h3 class="font-headline-md text-headline-md text-primary mb-2">Winter in Manali</h3>
+<div class="flex items-center gap-4 text-on-surface-variant/80 text-sm">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">calendar_today</span>
+<span>Dec 20 - 27</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">group</span>
+<span>4 People</span>
+</div>
+</div>
+</div>
+<div class="mt-4 flex justify-end">
+<button class="text-primary font-bold flex items-center gap-2 hover:translate-x-1 transition-transform">
+                                Resume Planning <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Trip Card 2 -->
+<div class="flex bg-white rounded-3xl overflow-hidden shadow-soft shadow-hover border border-outline-variant group">
+<div class="w-1/3 relative h-48 md:h-auto overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A wide shot of a luxury desert campsite in Jaisalmer under a vast starry night sky. The glowing lanterns outside the canvas tents cast a warm light on the sand dunes. The Milky Way galaxy is clearly visible above, adding a touch of magic to the rustic and premium desert setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC21zocsoz9h5pC-zyfS6RbEWVFXb0YHvGDFFuMlyG6uRtaJMRLrV9IGGI4YsEBvsZ_QWeTTyauabYDg7KDMLtkqejjPVo3yWscfnP0QJYJUXNkdYSnpNOyKPcBuHZluUwr_FHCh3VkLYcd2l5d3uP6nMPlMYSHEQvC1UA3ZuaznU2HSD4EE99iqt-wsMS08IUQr2QvbMuLlqeoSZTW0GIm8ooUhKggKY15u4xfYsB1Iqt2JO08n-j2w5tmpc1GeIKQQjc0nM6JO8No"/>
+<div class="absolute top-4 left-4 bg-surface-container-low px-3 py-1 rounded-full flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-outline"></span>
+<span class="text-label-sm font-label-sm text-on-surface-variant uppercase">Draft</span>
+</div>
+</div>
+<div class="w-2/3 p-6 flex flex-col justify-between">
+<div>
+<h4 class="text-on-surface-variant text-label-sm font-label-sm mb-1 uppercase tracking-widest">4 Days · Solo Experience</h4>
+<h3 class="font-headline-md text-headline-md text-primary mb-2">Rajasthan Heritage Walk</h3>
+<div class="flex items-center gap-4 text-on-surface-variant/80 text-sm">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">history</span>
+<span>Edited 2h ago</span>
+</div>
+</div>
+</div>
+<div class="mt-4 flex justify-end">
+<button class="text-primary font-bold flex items-center gap-2 hover:translate-x-1 transition-transform">
+                                Continue <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Recommended for You -->
+<section class="mb-16">
+<div class="flex justify-between items-end mb-8">
+<div>
+<h2 class="font-headline-md text-headline-md text-primary mb-2">Recommended for You</h2>
+<p class="text-on-surface-variant font-body-md">Hand-picked destinations matching your taste for slow travel and luxury.</p>
+</div>
+<div class="flex gap-2">
+<button class="w-10 h-10 rounded-full border border-outline-variant flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="w-10 h-10 rounded-full border border-outline-variant flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+<!-- Recommended Card 1 -->
+<div class="bg-white rounded-2xl overflow-hidden shadow-soft shadow-hover group">
+<div class="relative h-64">
+<img class="w-full h-full object-cover" data-alt="A sun-drenched coastal scene in Goa during the golden hour. A boutique villa with white walls and red-tiled roofs is nestled among swaying palm trees, overlooking a pristine beach with gentle waves. The lighting is warm and inviting, capturing the essence of a peaceful tropical getaway in a high-end travel magazine style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqxpcyhAmhNEfbEyLIfBUP8KpJjtLYQX1QXzw2mLnMySvIsd_IOsmg-8456IsQpQHIJqy-BLmdiTRhQXwHIE7M-9WcQYGeFnd2yFfYXPEuxgD4ltCQRaDRWHPKEvrrtLwz-ApC2VxUUGwwT0rtLdhLkKZv1Ed7Pq59e4LEl0Yhnrq5-wA806i4YbN0__Lt39bw8MZJXgG1qbXExW-QX5Pv-md1bACTMNKUMSlqjE70QDOIszaLXGa4_gJ5xXYsCjZ4aUJFxgasGRHw"/>
+<button class="absolute top-4 right-4 w-10 h-10 bg-white/40 backdrop-blur-md rounded-full flex items-center justify-center text-white hover:text-red-500 transition-colors">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+<div class="absolute bottom-4 left-4">
+<span class="bg-secondary text-white text-xs font-bold px-3 py-1 rounded-full">Hidden Gem</span>
+</div>
+</div>
+<div class="p-5">
+<div class="flex items-center gap-1 text-[#FF9F1C] mb-1">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-label-sm font-label-sm">4.9 (124 reviews)</span>
+</div>
+<h4 class="font-headline-md text-body-lg font-bold text-primary mb-1">Secret Shores of South Goa</h4>
+<p class="text-on-surface-variant text-sm line-clamp-2">Experience luxury boutique stays and untouched sandy beaches away from the crowds.</p>
+<div class="mt-4 flex items-center justify-between">
+<span class="text-primary font-bold">₹12,500<span class="text-on-surface-variant font-normal text-xs">/night</span></span>
+<button class="text-secondary text-sm font-bold flex items-center gap-1">View Detail <span class="material-symbols-outlined text-xs">open_in_new</span></button>
+</div>
+</div>
+</div>
+<!-- Recommended Card 2 -->
+<div class="bg-white rounded-2xl overflow-hidden shadow-soft shadow-hover group">
+<div class="relative h-64">
+<img class="w-full h-full object-cover" data-alt="A dramatic aerial view of a winding road cutting through the stark, mountainous landscape of Ladakh. The deep blue skies and turquoise rivers contrast sharply with the earthy tones of the barren peaks. The mood is epic and adventurous, emphasizing the scale and solitude of high-altitude travel in Northern India." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxOgjNo31aqUSZnSetVqFXPDt5vOztLOfHEZmcGh8QJEOUErDmWffMrk8EmkxpyRojzH0IxllmkgA4m23Qt7Sy6EyfNJbOJK5y1MWi5wplvYKWyzXsk5CdpMT-fcciT4nlxf9hP9dm63q9Itn_rz9VqUdaQurngG62Rf3CT2mt2xjC4uAGHMkb-LhkTk1s2QswKH5fCSZA-GYbPFlxtBf4kOHxqrJjq9NcfukQg8wtCiHZqLAo69Lsqxa9Eqs2QPZSzLiTmvscEOUu"/>
+<button class="absolute top-4 right-4 w-10 h-10 bg-white/40 backdrop-blur-md rounded-full flex items-center justify-center text-white hover:text-red-500 transition-colors">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+</div>
+<div class="p-5">
+<div class="flex items-center gap-1 text-[#FF9F1C] mb-1">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-label-sm font-label-sm">5.0 (86 reviews)</span>
+</div>
+<h4 class="font-headline-md text-body-lg font-bold text-primary mb-1">Ladakh: Sky High Retreat</h4>
+<p class="text-on-surface-variant text-sm line-clamp-2">Curated monastery tours and luxury glamping under the clearest skies in India.</p>
+<div class="mt-4 flex items-center justify-between">
+<span class="text-primary font-bold">₹22,000<span class="text-on-surface-variant font-normal text-xs">/night</span></span>
+<button class="text-secondary text-sm font-bold flex items-center gap-1">View Detail <span class="material-symbols-outlined text-xs">open_in_new</span></button>
+</div>
+</div>
+</div>
+<!-- Recommended Card 3 -->
+<div class="bg-white rounded-2xl overflow-hidden shadow-soft shadow-hover group">
+<div class="relative h-64">
+<img class="w-full h-full object-cover" data-alt="A lush, misty morning in a tea plantation in Munnar, Kerala. Rows of vibrant green tea bushes roll over the hills, disappearing into the soft white fog. A narrow walking path winds through the plantation, suggesting a slow, immersive nature walk. The visual style is serene, organic, and clean." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8p0wh7xaXbXTiGkt1dDE3EQefGwG5qqeZal04ld8rFa2hC5dTGres_JqLIrSowiJSxx0z7UZZ3Xsxn4TbwuKIs8m_VFJ50O0A3QbNuH4ufpIaJwgXNe1M0ERzB-lZFvInX2ca8VCp-XYdHdRh9P--Td3FfK8f9XPoPAdxNbMaSCBU3vltLWBRp7VMIb0ULbKYRDVRODzl7PVZyEPIrZe9WM_ZLWrlIzuSFJpWX0rFcIL-4DmVp7Pd8AuzJ9Z3Ylcojsq1o1yTPAnU"/>
+<button class="absolute top-4 right-4 w-10 h-10 bg-white/40 backdrop-blur-md rounded-full flex items-center justify-center text-white hover:text-red-500 transition-colors">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+<div class="absolute bottom-4 left-4">
+<span class="bg-[#FF9F1C] text-on-primary text-xs font-bold px-3 py-1 rounded-full">Top Seller</span>
+</div>
+</div>
+<div class="p-5">
+<div class="flex items-center gap-1 text-[#FF9F1C] mb-1">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-label-sm font-label-sm">4.8 (210 reviews)</span>
+</div>
+<h4 class="font-headline-md text-body-lg font-bold text-primary mb-1">Munnar: Emerald Escapes</h4>
+<p class="text-on-surface-variant text-sm line-clamp-2">Stay in colonial era tea estate bungalows with private trekking guides and tea tastings.</p>
+<div class="mt-4 flex items-center justify-between">
+<span class="text-primary font-bold">₹9,800<span class="text-on-surface-variant font-normal text-xs">/night</span></span>
+<button class="text-secondary text-sm font-bold flex items-center gap-1">View Detail <span class="material-symbols-outlined text-xs">open_in_new</span></button>
+</div>
+</div>
+</div>
+<!-- Recommended Card 4 -->
+<div class="bg-white rounded-2xl overflow-hidden shadow-soft shadow-hover group">
+<div class="relative h-64">
+<img class="w-full h-full object-cover" data-alt="A vibrant and colorful street scene in the old city of Jaipur, Rajasthan. The intricate Hawa Mahal or Palace of Winds is visible in the background, its pink sandstone glowing in the afternoon light. Bustling markets with textiles and handicrafts add life and energy to the composition. The style is bold, editorial travel photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1hSJ0wH3r3pMR3-mM-usAo_fLX5CjGN5l1nmI9zGOXp05k0MxI0cUyspDzmj0QHc_b7LjvN9CMTBzbXG9WL-eimd234ljYUkrJAjZk-iDtAQjWwdEwk3l-0hkd48cwE-EJBqAhujQTQ2ggvwuaKK5q3LuHuVAGa5JjeXWBtsbvOtbCSJ2hkvJNJR-fhIkzVi4196p_KUxXc5p47whCRQwrxepYMF5tX2Cgdsp1BCkZ97zOoWzlGLUvwOEkoBy02Vhryt3mlks_c5N"/>
+<button class="absolute top-4 right-4 w-10 h-10 bg-white/40 backdrop-blur-md rounded-full flex items-center justify-center text-white hover:text-red-500 transition-colors">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+</div>
+<div class="p-5">
+<div class="flex items-center gap-1 text-[#FF9F1C] mb-1">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-label-sm font-label-sm">4.7 (95 reviews)</span>
+</div>
+<h4 class="font-headline-md text-body-lg font-bold text-primary mb-1">Royal Pink City Tour</h4>
+<p class="text-on-surface-variant text-sm line-clamp-2">Immerse yourself in heritage luxury with private access to royal palaces and craft workshops.</p>
+<div class="mt-4 flex items-center justify-between">
+<span class="text-primary font-bold">₹15,200<span class="text-on-surface-variant font-normal text-xs">/night</span></span>
+<button class="text-secondary text-sm font-bold flex items-center gap-1">View Detail <span class="material-symbols-outlined text-xs">open_in_new</span></button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Newsletter / CTA -->
+<section class="bg-primary-container rounded-[2.5rem] p-12 relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-8">
+<div class="absolute top-0 right-0 -mr-20 -mt-20 w-64 h-64 bg-secondary opacity-20 blur-3xl rounded-full"></div>
+<div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-64 h-64 bg-[#FF9F1C] opacity-20 blur-3xl rounded-full"></div>
+<div class="relative z-10 max-w-xl">
+<h2 class="font-display-lg-mobile md:font-display-lg text-white mb-4">Get exclusive travel secrets.</h2>
+<p class="text-on-primary-container text-lg">Join 50,000+ wanderlust enthusiasts and get notified about hidden gems and limited-time holiday offers.</p>
+</div>
+<div class="relative z-10 w-full md:w-auto">
+<div class="bg-white/10 backdrop-blur-md p-2 rounded-2xl flex flex-col md:flex-row gap-2 border border-white/20">
+<input class="bg-transparent border-none focus:ring-0 text-white placeholder-white/60 px-6 py-4 w-full md:w-64" placeholder="Enter your email" type="email"/>
+<button class="bg-white text-primary px-8 py-4 rounded-xl font-bold hover:bg-on-primary-container hover:text-white transition-all whitespace-nowrap">Join Waitlist</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-primary dark:bg-surface-container-lowest w-full mt-16">
+<div class="flex flex-col md:flex-row justify-between items-center py-12 px-margin-desktop w-full max-w-container-max mx-auto">
+<div class="mb-8 md:mb-0 text-center md:text-left">
+<span class="font-headline-md text-headline-md font-bold text-on-primary dark:text-primary">Balaji Holidays</span>
+<p class="text-on-primary/80 dark:text-primary/70 font-body-md mt-4 max-w-xs">Crafting unforgettable journeys through India's most hidden and beautiful treasures since 2005.</p>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-16">
+<div class="flex flex-col gap-4">
+<span class="text-on-primary font-bold uppercase tracking-wider text-sm">Company</span>
+<a class="text-on-primary/80 dark:text-primary/70 font-body-md hover:text-secondary-fixed transition-colors" href="#">About Us</a>
+<a class="text-on-primary/80 dark:text-primary/70 font-body-md hover:text-secondary-fixed transition-colors" href="#">Contact Support</a>
+<a class="text-on-primary/80 dark:text-primary/70 font-body-md hover:text-secondary-fixed transition-colors" href="#">FAQ</a>
+</div>
+<div class="flex flex-col gap-4">
+<span class="text-on-primary font-bold uppercase tracking-wider text-sm">Legal</span>
+<a class="text-on-primary/80 dark:text-primary/70 font-body-md hover:text-secondary-fixed transition-colors" href="#">Terms of Service</a>
+<a class="text-on-primary/80 dark:text-primary/70 font-body-md hover:text-secondary-fixed transition-colors" href="#">Privacy Policy</a>
+</div>
+<div class="flex flex-col gap-4 col-span-2 md:col-span-1">
+<span class="text-on-primary font-bold uppercase tracking-wider text-sm">Resources</span>
+<a class="text-on-primary/80 dark:text-primary/70 font-body-md hover:text-secondary-fixed transition-colors" href="#">Travel Guides</a>
+<div class="flex gap-4 mt-2">
+<a class="w-10 h-10 rounded-full border border-on-primary/20 flex items-center justify-center text-on-primary hover:bg-white hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined text-sm">share</span>
+</a>
+<a class="w-10 h-10 rounded-full border border-on-primary/20 flex items-center justify-center text-on-primary hover:bg-white hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined text-sm">rss_feed</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+<div class="border-t border-on-primary/10 py-8 text-center px-margin-desktop">
+<p class="text-on-primary/60 dark:text-primary/50 text-sm">© 2024 Balaji Holidays. All rights reserved.</p>
+</div>
+</footer>
+<!-- FAB for New Plan (Mobile Contextual Action) -->
+<button class="md:hidden fixed bottom-6 right-6 w-16 h-16 bg-[#FF9F1C] text-white rounded-full shadow-2xl flex items-center justify-center z-40 active:scale-90 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1; font-size: 32px;">add</span>
+</button>
+<script>
+        // Micro-interaction for search focus
+        const searchInput = document.querySelector('input[type="text"]');
+        const searchContainer = searchInput.closest('.glass-effect');
+        
+        searchInput.addEventListener('focus', () => {
+            searchContainer.classList.add('ring-4', 'ring-[#FF9F1C]/20', 'scale-[1.02]');
+        });
+        
+        searchInput.addEventListener('blur', () => {
+            searchContainer.classList.remove('ring-4', 'ring-[#FF9F1C]/20', 'scale-[1.02]');
+        });
+
+        // Simple scroll effect for navbar shadow
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 20) {
+                nav.classList.add('shadow-md');
+            } else {
+                nav.classList.remove('shadow-md');
+            }
+        });
+    </script>
+</body></html>

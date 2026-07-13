@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% block title %}Hidden Gems | Balaji Holidays{% endblock %}
+
+{% block content %}
+<div class="bg-primary py-12">
+  <div class="max-w-container-max mx-auto px-margin-desktop">
+    <div class="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+      <div>
+        <p class="text-saffron font-semibold uppercase tracking-[0.25em] text-sm">Curated Finds</p>
+        <h1 class="font-display-lg text-display-lg text-on-primary mt-2">Hidden gems worth discovering</h1>
+        <p class="text-on-primary/80 mt-3 max-w-2xl">These lesser-known places are ideal for travelers who love stories, local flavor, and unexpected beauty.</p>
+      </div>
+      <form method="get" class="w-full lg:max-w-xl flex items-center gap-3 bg-surface-container-lowest rounded-2xl p-3 shadow-xl">
+        <span class="material-symbols-outlined text-outline ml-2">search</span>
+        <input name="q" type="text" value="{{ query }}" placeholder="Search by name or vibe" class="flex-1 bg-transparent border-none focus:ring-0 text-on-surface outline-none" />
+        <button type="submit" class="bg-saffron text-primary px-5 py-2.5 rounded-xl font-bold text-sm">Search</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<section class="max-w-container-max mx-auto px-margin-desktop py-10">
+  <div class="flex flex-wrap gap-2 mb-8">
+    {% for category in categories %}
+    <a href="?q={{ query|urlencode }}&category={{ category }}&destination={{ selected_destination }}"
+       class="px-4 py-2 rounded-full text-sm font-semibold transition-all {% if active_category == category %}bg-primary text-on-primary{% else %}bg-surface-container-low text-on-surface-variant hover:bg-surface-container-high{% endif %}">
+      {{ category }}
+    </a>
+    {% endfor %}
+  </div>
+
+  <div class="mb-6 text-sm text-on-surface-variant">{{ total_count }} hidden gems available</div>
+
+  <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
+    {% for gem in gems %}
+    <div class="rounded-3xl overflow-hidden bg-surface-container-lowest shadow-[0px_4px_20px_rgba(26,54,93,0.05)]">
+      <div class="h-44 bg-surface-container-high flex items-center justify-center">
+        <span class="material-symbols-outlined text-5xl text-secondary">diamond</span>
+      </div>
+      <div class="p-5">
+        <div class="flex items-center justify-between mb-2">
+          <h3 class="font-bold text-primary">{{ gem.name }}</h3>
+          <span class="text-saffron text-sm font-semibold">★ {{ gem.rating }}</span>
+        </div>
+        {% if gem.destination %}<p class="text-secondary text-sm font-semibold">{{ gem.destination.name }}</p>{% endif %}
+        <p class="text-sm text-on-surface-variant mt-3">{{ gem.why_special|default:gem.description }}</p>
+      </div>
+    </div>
+    {% empty %}
+    <div class="md:col-span-2 xl:col-span-3 rounded-3xl border border-dashed border-outline-variant bg-surface-container-low p-12 text-center text-on-surface-variant">
+      <span class="material-symbols-outlined text-5xl block mb-3">diamond</span>
+      <p>No hidden gems match your filters right now.</p>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}

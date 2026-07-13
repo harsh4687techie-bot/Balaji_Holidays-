@@ -1,0 +1,67 @@
+<!-- Footer Partial -->
+<footer class="bg-primary text-on-primary mt-20">
+  <div class="max-w-container-max mx-auto px-margin-desktop py-16">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+      <!-- Brand Column -->
+      <div class="md:col-span-1">
+        <h2 class="font-headline-md text-headline-md font-bold text-on-primary mb-3">Balaji Holidays</h2>
+        <p class="text-on-primary/80 text-sm leading-relaxed mb-6">
+          Your personal travel companion for bespoke itineraries and off-the-beaten-path hidden gems.
+        </p>
+        <div class="flex items-center gap-4">
+          <a href="#" aria-label="Instagram" class="w-9 h-9 bg-on-primary/10 rounded-full flex items-center justify-center hover:bg-saffron hover:text-primary transition-all">
+            <span class="material-symbols-outlined text-[18px]">photo_camera</span>
+          </a>
+          <a href="#" aria-label="Twitter" class="w-9 h-9 bg-on-primary/10 rounded-full flex items-center justify-center hover:bg-saffron hover:text-primary transition-all">
+            <span class="material-symbols-outlined text-[18px]">share</span>
+          </a>
+          <a href="#" aria-label="Facebook" class="w-9 h-9 bg-on-primary/10 rounded-full flex items-center justify-center hover:bg-saffron hover:text-primary transition-all">
+            <span class="material-symbols-outlined text-[18px]">thumb_up</span>
+          </a>
+        </div>
+      </div>
+      <!-- Explore -->
+      <div>
+        <h3 class="font-label-sm text-label-sm text-on-primary/60 uppercase tracking-wider mb-4">Explore</h3>
+        <ul class="space-y-3">
+          <li><a href="{% url 'destination_search' %}" class="text-on-primary/80 font-body-md text-body-md hover:text-secondary-fixed transition-colors">Destinations</a></li>
+          <li><a href="{% url 'hidden_gems' %}" class="text-on-primary/80 font-body-md text-body-md hover:text-secondary-fixed transition-colors">Hidden Gems</a></li>
+          <li><a href="{% url 'map_view' %}" class="text-on-primary/80 font-body-md text-body-md hover:text-secondary-fixed transition-colors">Map View</a></li>
+          <li><a href="{% url 'trip_planner' %}" class="text-on-primary/80 font-body-md text-body-md hover:text-secondary-fixed transition-colors">Trip Planner</a></li>
+        </ul>
+      </div>
+      <!-- Account -->
+      <div>
+        <h3 class="font-label-sm text-label-sm text-on-primary/60 uppercase tracking-wider mb-4">Account</h3>
+        <ul class="space-y-3">
+          {% if user.is_authenticated %}
+          <li><a href="{% url 'profile' %}" class="text-on-primary/80 font-body-md text-body-md hover:text-secondary-fixed transition-colors">My Profile</a></li>
+          <li><a href="{% url 'saved_trips' %}" class="text-on-primary/80 font-body-md text-body-md hover:text-secondary-fixed transition-colors">Saved Trips</a></li>
+          {% else %}
+          <li><a href="{% url 'login' %}" class="text-on-primary/80 font-body-md text-body-md hover:text-secondary-fixed transition-colors">Sign In</a></li>
+          <li><a href="{% url 'signup' %}" class="text-on-primary/80 font-body-md text-body-md hover:text-secondary-fixed transition-colors">Create Account</a></li>
+          {% endif %}
+          <li><a href="{% url 'faq' %}" class="text-on-primary/80 font-body-md text-body-md hover:text-secondary-fixed transition-colors">FAQ</a></li>
+        </ul>
+      </div>
+      <!-- Newsletter -->
+      <div>
+        <h3 class="font-label-sm text-label-sm text-on-primary/60 uppercase tracking-wider mb-4">Stay Inspired</h3>
+        <p class="text-on-primary/70 text-sm mb-4">Get weekly travel inspiration and hidden gems delivered to your inbox.</p>
+        <div class="flex gap-2">
+          <input type="email" placeholder="your@email.com" class="flex-1 bg-on-primary/10 border border-on-primary/20 rounded-xl px-4 py-2.5 text-on-primary text-sm placeholder:text-on-primary/40 focus:outline-none focus:border-secondary-fixed"/>
+          <button class="bg-saffron text-primary px-4 py-2.5 rounded-xl font-bold text-sm hover:brightness-105 transition-all">Go</button>
+        </div>
+      </div>
+    </div>
+    <!-- Bottom bar -->
+    <div class="border-t border-on-primary/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+      <p class="text-on-primary/50 text-sm">&copy; {% now "Y" %} Balaji Holidays. All rights reserved.</p>
+      <div class="flex gap-6 text-sm">
+        <a href="#" class="text-on-primary/50 hover:text-on-primary transition-colors">Privacy Policy</a>
+        <a href="#" class="text-on-primary/50 hover:text-on-primary transition-colors">Terms of Service</a>
+        <a href="{% url 'faq' %}" class="text-on-primary/50 hover:text-on-primary transition-colors">Support</a>
+      </div>
+    </div>
+  </div>
+</footer>

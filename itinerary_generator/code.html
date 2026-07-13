@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Itinerary Generator | Balaji Holidays</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .timeline-line {
+            background: linear-gradient(180deg, #13696a 0%, #1a365d 100%);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 10px;
+        }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary-container": "#86a0cd",
+                    "outline": "#74777f",
+                    "surface": "#f7fafc",
+                    "error-container": "#ffdad6",
+                    "tertiary-container": "#4f2e00",
+                    "primary-fixed": "#d6e3ff",
+                    "surface-bright": "#f7fafc",
+                    "secondary-container": "#a2eded",
+                    "primary-container": "#1a365d",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary-fixed": "#002020",
+                    "on-background": "#181c1e",
+                    "on-secondary": "#ffffff",
+                    "surface-tint": "#455f88",
+                    "on-primary-fixed-variant": "#2d476f",
+                    "on-tertiary-container": "#d4903b",
+                    "background": "#f7fafc",
+                    "surface-container-low": "#f1f4f6",
+                    "inverse-surface": "#2d3133",
+                    "surface-container-highest": "#e0e3e5",
+                    "tertiary-fixed-dim": "#ffb866",
+                    "outline-variant": "#c4c6cf",
+                    "error": "#ba1a1a",
+                    "surface-container-high": "#e5e9eb",
+                    "tertiary": "#321b00",
+                    "secondary": "#13696a",
+                    "on-surface": "#181c1e",
+                    "on-primary": "#ffffff",
+                    "secondary-fixed-dim": "#89d3d4",
+                    "on-surface-variant": "#43474e",
+                    "on-error-container": "#93000a",
+                    "secondary-fixed": "#a5eff0",
+                    "on-error": "#ffffff",
+                    "inverse-on-surface": "#eef1f3",
+                    "on-secondary-fixed-variant": "#004f50",
+                    "tertiary-fixed": "#ffddba",
+                    "surface-container": "#ebeef0",
+                    "primary-fixed-dim": "#adc7f7",
+                    "surface-dim": "#d7dadc",
+                    "primary": "#002045",
+                    "inverse-primary": "#adc7f7"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-desktop": "40px",
+                    "unit": "8px",
+                    "container-max": "1280px",
+                    "margin-mobile": "16px",
+                    "gutter": "24px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Montserrat"],
+                    "display-lg": ["Montserrat"],
+                    "body-md": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "display-lg-mobile": ["Montserrat"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "label-sm": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "display-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+</head>
+<body class="bg-surface text-on-surface font-body-md">
+<!-- TopNavBar -->
+<header class="docked full-width top-0 sticky z-50 bg-surface/90 backdrop-blur-md shadow-[0px_4px_20px_rgba(26,54,93,0.05)] h-20">
+<nav class="flex justify-between items-center w-full px-margin-desktop h-full max-w-container-max mx-auto">
+<div class="font-headline-md text-headline-md font-bold text-primary">Balaji Holidays</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">Explore</a>
+<a class="font-body-md text-body-md text-primary font-bold border-b-2 border-primary pb-1 transition-colors duration-200" href="#">Planner</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">Hidden Gems</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">Saved</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="px-6 py-2 rounded-full border-2 border-secondary text-secondary font-semibold hover:bg-secondary hover:text-white transition-all active:scale-95">Login</button>
+<button class="px-6 py-2 rounded-full bg-primary text-white font-semibold shadow-md hover:shadow-lg transition-all active:scale-95">Sign Up</button>
+</div>
+</nav>
+</header>
+<main class="max-w-container-max mx-auto px-margin-desktop py-12">
+<!-- Hero Header -->
+<section class="mb-12">
+<div class="flex flex-col md:flex-row justify-between items-end gap-6">
+<div>
+<h1 class="font-display-lg text-display-lg text-primary mb-2">Maldives Escape</h1>
+<p class="text-body-lg text-on-surface-variant max-w-2xl">A curated 5-day journey through pristine turquoise waters, private villas, and authentic Maldivian hospitality. Optimized for relaxation and adventure.</p>
+</div>
+<div class="flex gap-3">
+<button class="flex items-center gap-2 px-6 py-3 rounded-xl bg-white border border-outline-variant text-primary font-semibold hover:shadow-md transition-all">
+<span class="material-symbols-outlined">share</span> Share with Friends
+                    </button>
+<button class="flex items-center gap-2 px-6 py-3 rounded-xl bg-secondary text-white font-semibold shadow-md hover:shadow-xl transition-all">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">bookmark</span> Save to Trip
+                    </button>
+</div>
+</div>
+</section>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Left: Itinerary Timeline -->
+<div class="lg:col-span-8 space-y-12">
+<!-- Day 1 -->
+<div class="relative pl-12 border-l-2 border-secondary/30">
+<!-- Day Marker -->
+<div class="absolute -left-4 top-0 w-8 h-8 rounded-full bg-secondary flex items-center justify-center text-white font-bold shadow-lg">1</div>
+<div class="mb-8">
+<h2 class="font-headline-md text-headline-md text-primary">Day 1: Arrival &amp; Sunset Serenity</h2>
+<span class="text-label-sm text-secondary uppercase tracking-widest">Monday, 12th Oct</span>
+</div>
+<div class="space-y-8">
+<!-- Morning Block -->
+<div>
+<div class="flex items-center gap-2 text-on-surface-variant font-semibold mb-4">
+<span class="material-symbols-outlined">sunny</span>
+<span>MORNING</span>
+</div>
+<div class="space-y-4">
+<!-- Activity Card -->
+<div class="bg-white p-6 rounded-2xl shadow-[0px_4px_20px_rgba(26,54,93,0.05)] hover:shadow-[0px_10px_30px_rgba(26,54,93,0.12)] transition-all group border-l-4 border-secondary">
+<div class="flex justify-between items-start">
+<div class="flex gap-4">
+<div class="w-24 h-24 rounded-xl overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="A luxurious private sea plane landing on turquoise waters with white foam, bright sunny morning light, captured in a high-end travel editorial style for Balaji Holidays. The colors are dominated by deep blues and vibrant teals, reflecting a premium tropical atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgznXBavTHyu1TVAwWnIqf6Rt01avzG4rTg8tnQx7CWmPmjJhXVeG7a2ROF6Qhn-2KfEEMxeE45BDeldS3M0kC9X34T9RuKvuCCMWI8rP7OlFXlpGO99GxfqUtF__mHn4vhbhHZX_jQrSJaj9CHAIjs_9-0z7VbCvWJRKlqKBhlDrJ-HGw8vV-6qFpap5P4IWL5U0x6x-zhZpkeJWOwXs241V1uh6RRsl1Y79R0B9K38OVZO3pA0RahpPxnGMi5SDgINjvka9_KKbo"/>
+</div>
+<div>
+<span class="text-label-sm text-secondary font-bold">09:00 AM - 10:30 AM</span>
+<h3 class="font-headline-md text-lg text-primary mb-1">Sea Plane Transfer</h3>
+<p class="text-on-surface-variant text-sm">Aerial view of the Atolls. Pick up from Velana International Airport.</p>
+</div>
+</div>
+<button class="opacity-0 group-hover:opacity-100 p-2 text-outline hover:text-primary transition-opacity">
+<span class="material-symbols-outlined">edit</span>
+</button>
+</div>
+</div>
+<!-- Travel Duration Indicator -->
+<div class="flex items-center gap-4 py-2 px-6 bg-surface-container-low rounded-full w-fit ml-8">
+<span class="material-symbols-outlined text-secondary text-sm">directions_boat</span>
+<span class="text-sm font-medium text-on-surface-variant italic">20 mins speed boat to resort</span>
+</div>
+</div>
+</div>
+<!-- Afternoon Block -->
+<div>
+<div class="flex items-center gap-2 text-on-surface-variant font-semibold mb-4">
+<span class="material-symbols-outlined">wb_twilight</span>
+<span>AFTERNOON</span>
+</div>
+<div class="space-y-4">
+<div class="bg-white p-6 rounded-2xl shadow-[0px_4px_20px_rgba(26,54,93,0.05)] hover:shadow-[0px_10px_30px_rgba(26,54,93,0.12)] transition-all group border-l-4 border-primary">
+<div class="flex justify-between items-start">
+<div class="flex gap-4">
+<div class="w-24 h-24 rounded-xl overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="An exquisite overwater villa deck with a private infinity pool overlooking the Indian Ocean. The scene is bathed in soft, warm afternoon light. The aesthetic is clean, minimalist, and luxury-focused, using the Balaji Holidays color palette of deep blue and pristine white." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWiNU30nhClxcFMzuGIMQymksLTU2V46nw6HmPGa9iWPY7-fTK6ilVwbuAdNClQ70XhNCMofZSW_DInFXQfUOO8anItHjWgOesC_V6cl8DvI5tK5QtHfsUuDa9v8TjbRrmE3KEBG806jNBotNQwIZcSpFIBsXNhfYIiNk6oMvUX4GGHpUBMRJ16g9bRJ9kJ1lJaqR3G-rBLWWKTtlzGuLTRFglDZUijr0PALR5MLLwZyKMpapjcClCY1Xe7QMrskqM1H2FZoyXImzi"/>
+</div>
+<div>
+<span class="text-label-sm text-secondary font-bold">01:00 PM - 03:00 PM</span>
+<h3 class="font-headline-md text-lg text-primary mb-1">Check-in &amp; Lunch at The Lagoon</h3>
+<p class="text-on-surface-variant text-sm">Fresh organic Maldivian seafood lunch by the water.</p>
+</div>
+</div>
+<button class="opacity-0 group-hover:opacity-100 p-2 text-outline hover:text-primary transition-opacity">
+<span class="material-symbols-outlined">edit</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Evening Block -->
+<div>
+<div class="flex items-center gap-2 text-on-surface-variant font-semibold mb-4">
+<span class="material-symbols-outlined">dark_mode</span>
+<span>EVENING</span>
+</div>
+<div class="space-y-4">
+<div class="bg-white p-6 rounded-2xl shadow-[0px_4px_20px_rgba(26,54,93,0.05)] hover:shadow-[0px_10px_30px_rgba(26,54,93,0.12)] transition-all group border-l-4 border-secondary">
+<div class="flex justify-between items-start">
+<div class="flex gap-4">
+<div class="w-24 h-24 rounded-xl overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="A romantic sunset dinner setup on a white sand beach with elegant lanterns and a table for two. The sky is painted in shades of saffron and deep blue. This high-end editorial shot captures the calm excitement of a tropical getaway, consistent with Balaji Holidays premium branding." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsg-hc8KHeNeGvYRt4SMepZ4c4pRddeeiUi6YrXEQDsYba5jIFGt-rN1iNzYI19PtALVAo--pXblsGRD4VL4RXAh2pQrvMKlBDHISvkMGVbAqURNa95I733UGBPhtTfiA2cfQq_O39R6EN9Emx4Rij-r0GUnzgLlHdn2PMxcjE6Ub7Kk4sSE2nAycX8mUA3eEanVYHPgnPIi0NdC-Y7gRkUaTvWyakcKChxR97zyT4-qkDS2nzuzi30CvGCSZRybUKkJ7FrZxoPWTe"/>
+</div>
+<div>
+<span class="text-label-sm text-secondary font-bold">06:30 PM - 09:00 PM</span>
+<h3 class="font-headline-md text-lg text-primary mb-1">Sunset Sandbank Dinner</h3>
+<p class="text-on-surface-variant text-sm">Private chef experience under the stars with live music.</p>
+</div>
+</div>
+<button class="opacity-0 group-hover:opacity-100 p-2 text-outline hover:text-primary transition-opacity">
+<span class="material-symbols-outlined">edit</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Day 2 (Condensed View Example) -->
+<div class="relative pl-12 border-l-2 border-secondary/30 opacity-80">
+<div class="absolute -left-4 top-0 w-8 h-8 rounded-full bg-outline-variant flex items-center justify-center text-white font-bold">2</div>
+<div class="flex justify-between items-center mb-4">
+<h2 class="font-headline-md text-headline-md text-primary">Day 2: Marine Discovery</h2>
+<button class="text-secondary font-semibold flex items-center gap-1">Expand Day <span class="material-symbols-outlined">expand_more</span></button>
+</div>
+<p class="text-on-surface-variant">Snorkeling with Whale Sharks, Manta Ray cleaning station visit, and Spa evening.</p>
+</div>
+</div>
+<!-- Right: Side Panel (Cost & Summary) -->
+<aside class="lg:col-span-4">
+<div class="sticky top-28 space-y-6">
+<!-- Trip Summary Card -->
+<div class="bg-primary text-white p-8 rounded-[2rem] shadow-xl overflow-hidden relative">
+<div class="absolute -right-10 -top-10 w-40 h-40 bg-secondary/20 rounded-full blur-3xl"></div>
+<h3 class="font-headline-md text-headline-md mb-6 relative z-10">Trip Summary</h3>
+<div class="space-y-4 relative z-10">
+<div class="flex justify-between items-center py-3 border-b border-white/10">
+<span class="text-white/70">Duration</span>
+<span class="font-semibold">5 Days / 4 Nights</span>
+</div>
+<div class="flex justify-between items-center py-3 border-b border-white/10">
+<span class="text-white/70">Travelers</span>
+<span class="font-semibold">2 Adults</span>
+</div>
+<div class="flex justify-between items-center py-3 border-b border-white/10">
+<span class="text-white/70">Category</span>
+<span class="bg-secondary/30 px-3 py-1 rounded-full text-xs font-bold uppercase">Ultra Luxury</span>
+</div>
+<div class="flex justify-between items-center py-3 border-b border-white/10">
+<span class="text-white/70">Destinations</span>
+<span class="font-semibold">3 Atolls</span>
+</div>
+</div>
+<div class="mt-8 pt-6 border-t border-white/20 relative z-10">
+<div class="flex justify-between items-end mb-6">
+<div>
+<span class="text-white/60 block text-xs uppercase tracking-widest mb-1">Estimated Cost</span>
+<span class="text-3xl font-bold">$4,850</span>
+</div>
+<span class="text-secondary-fixed text-sm font-medium">Fully Inclusive</span>
+</div>
+<button class="w-full bg-secondary text-white py-4 rounded-xl font-bold hover:bg-secondary-fixed-dim hover:text-on-secondary-fixed transition-all shadow-lg active:scale-95">
+                                Book This Itinerary
+                            </button>
+</div>
+</div>
+<!-- Mini Map Card -->
+<div class="bg-white p-6 rounded-[2rem] shadow-[0px_4px_20px_rgba(26,54,93,0.05)] border border-outline-variant/30">
+<h4 class="font-bold text-primary mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">explore</span> Route Preview
+                        </h4>
+<div class="w-full h-48 rounded-2xl overflow-hidden bg-surface-container-high relative">
+<div class="w-full h-full bg-cover bg-center" data-location="Maldives" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBhsoXGUkeFf7_wu6XjAlRicNuwWoMKEYNtwbuQfeLP7pUkfhl2ZLF6mc1bvFEwLSJ_-uum2twRCXUM_hzsOsdqBCIQFs1H_kJN2CgqatdmH4u6YOHOg3MvgeITLePVlWsTp1OcgI2N1SIVBkSLeQhJmevGseLK0tJRY6rkoo8QQqjuXJOBiBCTsi-8ODP5oU0ia3jvDHSFCDpjyZE5QNmVKTbV9f7eKrn2rwg9eZfkKDpPhTzjQNyOVMI1aR1es7wqp_nfP-N0ypSc')"></div>
+<div class="absolute inset-0 bg-primary/10 pointer-events-none"></div>
+</div>
+</div>
+<!-- Assistance Card -->
+<div class="bg-secondary-container/30 p-6 rounded-[2rem] border border-secondary/20">
+<div class="flex gap-4 items-start">
+<div class="w-12 h-12 rounded-full bg-secondary flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-white">support_agent</span>
+</div>
+<div>
+<h4 class="font-bold text-secondary mb-1">Need help tweaking?</h4>
+<p class="text-sm text-on-secondary-container mb-4">Our travel experts are available 24/7 to customize this plan for you.</p>
+<button class="text-sm font-bold text-primary flex items-center gap-1 hover:underline">
+                                    Chat with an Expert <span class="material-symbols-outlined text-xs">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</aside>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full mt-16 bg-primary dark:bg-surface-container-lowest">
+<div class="flex flex-col md:flex-row justify-between items-center py-12 px-margin-desktop w-full max-w-container-max mx-auto">
+<div class="mb-8 md:mb-0">
+<div class="font-headline-md text-headline-md font-bold text-on-primary mb-2">Balaji Holidays</div>
+<p class="text-on-primary/60 text-sm max-w-xs">Crafting unforgettable journeys across the globe since 1998.</p>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 gap-x-12 gap-y-4">
+<a class="text-on-primary/80 font-body-md text-body-md hover:text-secondary-fixed transition-colors" href="#">About Us</a>
+<a class="text-on-primary/80 font-body-md text-body-md hover:text-secondary-fixed transition-colors" href="#">Terms of Service</a>
+<a class="text-on-primary/80 font-body-md text-body-md hover:text-secondary-fixed transition-colors" href="#">Privacy Policy</a>
+<a class="text-on-primary/80 font-body-md text-body-md hover:text-secondary-fixed transition-colors" href="#">Contact Support</a>
+<a class="text-on-primary/80 font-body-md text-body-md hover:text-secondary-fixed transition-colors" href="#">FAQ</a>
+<a class="text-on-primary/80 font-body-md text-body-md hover:text-secondary-fixed transition-colors" href="#">Travel Guides</a>
+</div>
+</div>
+<div class="border-t border-white/10 py-6 text-center text-on-primary/40 text-xs">
+            © 2024 Balaji Holidays. All rights reserved.
+        </div>
+</footer>
+<script>
+        // Micro-interaction for activity cards
+        document.querySelectorAll('.bg-white.p-6').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-4px)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body></html>

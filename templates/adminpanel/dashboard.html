@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% block title %}Admin Dashboard | Balaji Holidays{% endblock %}
+
+{% block content %}
+<div class="bg-primary py-12">
+  <div class="max-w-container-max mx-auto px-margin-desktop">
+    <h1 class="font-display-lg text-display-lg text-on-primary">Admin dashboard</h1>
+    <p class="text-on-primary/80 mt-3 max-w-2xl">Monitor the travel platform and keep the destination library up to date.</p>
+  </div>
+</div>
+
+<section class="max-w-container-max mx-auto px-margin-desktop py-10">
+  <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-6">
+    <div class="rounded-3xl bg-surface-container-lowest p-6 shadow-[0px_4px_20px_rgba(26,54,93,0.05)]">
+      <p class="text-sm text-on-surface-variant">Users</p>
+      <p class="text-3xl font-bold text-primary mt-2">{{ total_users }}</p>
+    </div>
+    <div class="rounded-3xl bg-surface-container-lowest p-6 shadow-[0px_4px_20px_rgba(26,54,93,0.05)]">
+      <p class="text-sm text-on-surface-variant">Destinations</p>
+      <p class="text-3xl font-bold text-primary mt-2">{{ total_destinations }}</p>
+    </div>
+    <div class="rounded-3xl bg-surface-container-lowest p-6 shadow-[0px_4px_20px_rgba(26,54,93,0.05)]">
+      <p class="text-sm text-on-surface-variant">Trips</p>
+      <p class="text-3xl font-bold text-primary mt-2">{{ total_trips }}</p>
+    </div>
+    <div class="rounded-3xl bg-surface-container-lowest p-6 shadow-[0px_4px_20px_rgba(26,54,93,0.05)]">
+      <p class="text-sm text-on-surface-variant">Hidden Gems</p>
+      <p class="text-3xl font-bold text-primary mt-2">{{ total_gems }}</p>
+    </div>
+  </div>
+
+  <div class="mt-8 grid lg:grid-cols-[1.1fr_0.9fr] gap-6">
+    <div class="rounded-3xl bg-surface-container-lowest p-6 shadow-[0px_4px_20px_rgba(26,54,93,0.05)]">
+      <h2 class="font-headline-md text-headline-md text-primary">Recent trips</h2>
+      <div class="mt-4 space-y-3">
+        {% for trip in recent_trips %}
+        <div class="rounded-2xl bg-surface-container p-4 text-sm text-on-surface-variant">
+          <p class="font-semibold text-primary">{{ trip.title }}</p>
+          <p class="mt-1">{{ trip.destination_name }} • by {{ trip.user.username }}</p>
+        </div>
+        {% empty %}
+        <p>No trips created yet.</p>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="rounded-3xl bg-surface-container-lowest p-6 shadow-[0px_4px_20px_rgba(26,54,93,0.05)]">
+      <h2 class="font-headline-md text-headline-md text-primary">Quick actions</h2>
+      <div class="mt-4 space-y-3">
+        <a href="{% url 'admin_destinations' %}" class="block rounded-2xl bg-surface-container p-4 text-primary font-semibold">Manage destinations</a>
+        <a href="{% url 'admin_gems' %}" class="block rounded-2xl bg-surface-container p-4 text-primary font-semibold">Manage hidden gems</a>
+        <a href="{% url 'admin_faqs' %}" class="block rounded-2xl bg-surface-container p-4 text-primary font-semibold">Manage FAQs</a>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

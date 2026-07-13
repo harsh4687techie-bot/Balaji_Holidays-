@@ -1,0 +1,137 @@
+{% extends 'base.html' %}
+{% block title %}Balaji Holidays | Plan Smarter Journeys{% endblock %}
+{% block meta_description %}Your personal AI-powered travel assistant for bespoke itineraries and off-the-beaten-path
+hidden gems. Discover the world through an editorial lens.{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="relative min-h-[870px] flex items-center overflow-hidden">
+  <div class="absolute inset-0 z-0">
+    <div class="w-full h-full bg-cover bg-center"
+      style="background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1600&q=80')"></div>
+    <div class="absolute inset-0 hero-gradient"></div>
+  </div>
+  <div class="relative z-10 w-full max-w-container-max mx-auto px-margin-desktop py-20">
+    <div class="max-w-2xl">
+      <h1 class="font-display-lg text-display-lg md:text-display-lg text-primary mb-6">Plan smarter journeys with Balaji
+        Holidays</h1>
+      <p class="font-body-lg text-body-lg text-on-surface-variant mb-10 leading-relaxed">
+        Your personal AI-powered travel assistant for bespoke itineraries and off-the-beaten-path hidden gems. Discover
+        the world through an editorial lens.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4">
+        <a href="{% url 'trip_planner' %}"
+          class="bg-saffron hover:brightness-105 text-primary-container px-8 py-4 rounded-xl font-bold text-lg shadow-lg transition-all active:scale-95 text-center">Plan
+          My Trip</a>
+        <a href="{% url 'destination_search' %}"
+          class="border-2 border-secondary text-secondary hover:bg-secondary/5 px-8 py-4 rounded-xl font-bold text-lg transition-all active:scale-95 text-center">Explore
+          Destinations</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Trust Badges -->
+<section class="bg-surface py-12 border-y border-outline-variant/20">
+  <div class="max-w-container-max mx-auto px-margin-desktop">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center justify-items-center">
+      <div class="flex items-center gap-4 text-primary">
+        <span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">groups</span>
+        <div>
+          <p class="font-bold text-xl">1M+ Travelers</p>
+          <p class="text-sm text-on-surface-variant">Trusted globally</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-4 text-primary">
+        <span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+        <div>
+          <p class="font-bold text-xl">Safe & Secure</p>
+          <p class="text-sm text-on-surface-variant">Verified bookings</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-4 text-primary">
+        <span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">support_agent</span>
+        <div>
+          <p class="font-bold text-xl">24/7 Support</p>
+          <p class="text-sm text-on-surface-variant">Always here for you</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Featured Destinations -->
+<section class="py-24 max-w-container-max mx-auto px-margin-desktop">
+  <div class="flex justify-between items-end mb-12">
+    <div>
+      <h2 class="font-headline-md text-headline-md text-primary mb-2">Featured Destinations</h2>
+      <p class="text-on-surface-variant">Handpicked experiences for the curious traveler.</p>
+    </div>
+    <a href="{% url 'destination_search' %}"
+      class="text-secondary font-bold flex items-center gap-2 hover:gap-3 transition-all">
+      View All <span class="material-symbols-outlined">arrow_forward</span>
+    </a>
+  </div>
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter">
+    {% for dest in featured_destinations %}
+    <a href="{% url 'destination_detail' dest.pk %}"
+      class="group cursor-pointer card-hover transition-all duration-300 rounded-2xl overflow-hidden bg-surface-container-lowest shadow-[0px_4px_20px_rgba(26,54,93,0.05)] block">
+      <div class="relative aspect-[3/4]">
+        {% if dest.image_url %}
+        <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+          src="{{ dest.image_url }}" alt="{{ dest.name }}, {{ dest.country }}" />
+        {% else %}
+        <div class="w-full h-full bg-surface-container-high flex items-center justify-center"><span
+            class="material-symbols-outlined text-6xl text-outline">landscape</span></div>
+        {% endif %}
+        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+        <div class="absolute bottom-4 left-4 right-4">
+          <p class="text-on-primary font-bold text-lg">{{ dest.name }}</p>
+          <p class="text-on-primary/80 text-sm">{{ dest.country }}</p>
+        </div>
+      </div>
+      <div class="p-5">
+        <div class="flex justify-between items-center">
+          <p class="text-on-surface-variant text-sm">{{ dest.categories_display }}</p>
+          <div class="flex items-center gap-1 text-saffron text-sm font-bold">
+            <span class="material-symbols-outlined text-[14px]" style="font-variation-settings:'FILL' 1;">star</span>
+            {{ dest.rating }}
+          </div>
+        </div>
+        <p class="text-primary font-bold mt-1">${{ dest.price_per_person }} <span
+            class="text-outline text-xs font-normal">/ person</span></p>
+      </div>
+    </a>
+    {% empty %}
+    <div class="col-span-4 text-center py-12 text-on-surface-variant">
+      <span class="material-symbols-outlined text-6xl block mb-4">travel_explore</span>
+      <p>No featured destinations yet. <a href="{% url 'destination_search' %}" class="text-secondary font-bold">Browse
+          all destinations.</a></p>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+<!-- CTA Banner -->
+<section class="bg-primary py-20 mx-margin-desktop rounded-3xl max-w-container-max mx-auto mb-24">
+  <div class="text-center px-8">
+    <h2 class="font-display-lg text-display-lg text-on-primary mb-4">Ready for your next adventure?</h2>
+    <p class="text-on-primary/80 text-body-lg mb-10 max-w-xl mx-auto">Create your personalised itinerary in 3 simple
+      steps. Powered by smart planning, inspired by local knowledge.</p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      {% if user.is_authenticated %}
+      <a href="{% url 'trip_planner' %}"
+        class="bg-saffron text-primary px-10 py-4 rounded-xl font-bold text-lg hover:brightness-105 transition-all active:scale-95">Start
+        Planning Now</a>
+      {% else %}
+      <a href="{% url 'signup' %}"
+        class="bg-saffron text-primary px-10 py-4 rounded-xl font-bold text-lg hover:brightness-105 transition-all active:scale-95">Join
+        Free Today</a>
+      <a href="{% url 'trip_planner' %}"
+        class="border-2 border-on-primary/40 text-on-primary px-10 py-4 rounded-xl font-bold text-lg hover:border-on-primary transition-all active:scale-95">Try
+        the Planner</a>
+      {% endif %}
+    </div>
+  </div>
+</section>
+{% endblock %}

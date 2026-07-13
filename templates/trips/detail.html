@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block title %}{{ trip.title }} | Balaji Holidays{% endblock %}
+
+{% block content %}
+<div class="bg-primary py-12">
+  <div class="max-w-container-max mx-auto px-margin-desktop">
+    <h1 class="font-display-lg text-display-lg text-on-primary">{{ trip.title }}</h1>
+    <p class="text-on-primary/80 mt-3 max-w-2xl">{{ trip.destination_name }} • {{ trip.get_budget_display }}</p>
+  </div>
+</div>
+
+<section class="max-w-container-max mx-auto px-margin-desktop py-10">
+  <div class="rounded-3xl bg-surface-container-lowest p-8 shadow-[0px_4px_20px_rgba(26,54,93,0.05)]">
+    <div class="flex flex-wrap gap-3 mb-6">
+      <span class="rounded-full bg-surface-container px-3 py-1 text-sm text-on-surface-variant">{{ trip.traveler_count }} travelers</span>
+      {% if trip.start_date %}<span class="rounded-full bg-surface-container px-3 py-1 text-sm text-on-surface-variant">{{ trip.start_date }} to {{ trip.end_date }}</span>{% endif %}
+      <span class="rounded-full bg-surface-container px-3 py-1 text-sm text-on-surface-variant">{{ trip.get_budget_display }}</span>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-6">
+      <div class="rounded-2xl bg-surface-container p-5">
+        <h2 class="font-headline-md text-headline-md text-primary">Trip overview</h2>
+        <p class="text-sm text-on-surface-variant mt-3">This plan includes a tailored itinerary with activities across the day for each travel day.</p>
+        <div class="mt-6 flex flex-wrap gap-3">
+          <a href="{% url 'itinerary_detail' trip.pk %}" class="bg-primary text-on-primary px-5 py-3 rounded-xl font-semibold">Open itinerary</a>
+          <form method="post" action="{% url 'delete_trip' trip.pk %}">{% csrf_token %}<button type="submit" class="border border-outline-variant text-primary px-5 py-3 rounded-xl font-semibold">Delete trip</button></form>
+        </div>
+      </div>
+      <div class="rounded-2xl bg-surface-container p-5">
+        <h2 class="font-headline-md text-headline-md text-primary">Itinerary snapshots</h2>
+        <ul class="mt-4 space-y-3 text-sm text-on-surface-variant">
+          {% for item in items|slice:':6' %}
+          <li class="rounded-xl bg-surface-container-lowest p-3">{{ item.title }} <span class="text-xs text-outline">• {{ item.time_range }}</span></li>
+          {% empty %}
+          <li>No itinerary items created yet.</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
